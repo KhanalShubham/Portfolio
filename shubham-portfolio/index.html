@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shubham Khanal - XP Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome for Icons (Optional, using text/unicode or simple images for now to stay dependency-free if possible, using emoji or basic svgs) -->
+    <!-- Creating simple SVG icons inline or text based on Prompt request for "playful folder icons" -->
+</head>
+
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="xp-boot-container">
+            <div class="xp-logo-row">
+                <div class="xp-logo-main">
+                    <div class="xp-logo-squares">
+                        <span class="sq sq-r"></span>
+                        <span class="sq sq-g"></span>
+                        <span class="sq sq-b"></span>
+                        <span class="sq sq-y"></span>
+                    </div>
+                    <span class="xp-text-main">Shubham</span>
+                    <span class="xp-text-sub">Portfolio</span>
+                </div>
+                <div class="xp-edition">Experience His Journey</div>
+            </div>
+
+            <div class="splash-bar-container">
+                <div class="splash-bar-scroller">
+                    <span class="bar-block"></span>
+                    <span class="bar-block"></span>
+                    <span class="bar-block"></span>
+                </div>
+            </div>
+
+            <div class="boot-footer">
+                Copyright © Shubham Khanal
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Environment -->
+    <div class="desktop-container" id="desktop">
+
+        <!-- Desktop Shortcuts -->
+        <div class="desktop-icon" onclick="openWindow('window-profile')">
+            <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="My Computer">
+            <span>My Profile</span>
+        </div>
+
+        <a href="projects.html" class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="Projects">
+            <span>My Projects</span>
+        </a>
+
+        <a href="personal.html" class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-4.png" alt="Personal">
+            <span>Personal Space</span>
+        </a>
+
+        <div class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </div>
+
+        <!-- Main Bio Window -->
+        <div class="window" id="window-profile"
+            style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 500px;">
+            <div class="title-bar">
+                <div class="title-bar-text">About Shubham Khanal</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-profile')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-profile')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-profile')">X</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="profile-layout">
+                    <img src="src/shubham.jpg" alt="Shubham Khanal" class="profile-pic">
+                    <div class="profile-info">
+                        <p class="bio-text">
+                            “Hi, I’m Shubham Khanal — a full-stack developer, designer, storyteller, explorer, tennis
+                            player, and someone who is still learning, experimenting, and creating something new every
+                            day.”
+                        </p>
+
+                        <hr style="border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
+
+                        <!-- Quick Facts -->
+                        <strong>Quick Facts:</strong>
+                        <div class="quick-facts-grid">
+                            <div class="fact-item"><img
+                                    src="https://win98icons.alexmeub.com/icons/png/computer_explorer-0.png"
+                                    class="fact-icon"> Fullstack Developer</div>
+                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/paint_file-2.png"
+                                    class="fact-icon"> UI/UX Designer</div>
+                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/chart1-0.png"
+                                    class="fact-icon"> Data Science</div>
+                            <div class="fact-item"><img
+                                    src="https://win98icons.alexmeub.com/icons/png/game_solitaire-1.png"
+                                    class="fact-icon"> Tennis Player</div>
+                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/world-1.png"
+                                    class="fact-icon"> Adventurer</div>
+                            <div class="fact-item"><img
+                                    src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png"
+                                    class="fact-icon"> Movie Lover</div>
+                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/chm-2.png"
+                                    class="fact-icon"> Astrologer</div>
+                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png"
+                                    class="fact-icon"> Poet & Writer</div>
+                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/book_open-1.png"
+                                    class="fact-icon"> Lifelong Learner</div>
+                        </div>
+
+                        <hr style="border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
+
+                        <!-- Folders / Navigation -->
+                        <strong>Explore More:</strong>
+                        <div style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
+                            <a href="personal.html#tennis" style="text-align: center; width: 60px; cursor: pointer;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/game_solitaire-1.png" width="32"
+                                    alt="Tennis">
+                                <div style="font-size: 11px;">Tennis</div>
+                            </a>
+                            <a href="personal.html#hiking" style="text-align: center; width: 60px; cursor: pointer;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/world-1.png" width="32"
+                                    alt="Hiking">
+                                <div style="font-size: 11px;">Hiking</div>
+                            </a>
+                            <a href="personal.html#movies" style="text-align: center; width: 60px; cursor: pointer;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" width="32"
+                                    alt="Movies">
+                                <div style="font-size: 11px;">Movies</div>
+                            </a>
+                            <a href="personal.html#books" style="text-align: center; width: 60px; cursor: pointer;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/book_open-1.png" width="32"
+                                    alt="Books">
+                                <div style="font-size: 11px;">Books</div>
+                            </a>
+                            <a href="personal.html#astrology" style="text-align: center; width: 60px; cursor: pointer;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/chm-2.png" width="32"
+                                    alt="Astrology">
+                                <div style="font-size: 11px;">Astrology</div>
+                            </a>
+                            <a href="personal.html#poems" style="text-align: center; width: 60px; cursor: pointer;">
+                                <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" width="32"
+                                    alt="Poems">
+                                <div style="font-size: 11px;">Poems</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <div class="start-btn">
+            <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="Win">
+            Start
+        </div>
+        <div class="taskbar-divider"></div>
+
+        <!-- Socials in Taskbar or near tray -->
+        <div style="display: flex; gap: 10px; margin-left: 10px;">
+            <a href="https://www.linkedin.com/in/shubham-khanal-445a4a245/" target="_blank" title="LinkedIn">
+                <img src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-0.png" width="20">
+            </a>
+            <a href="https://github.com/KhanalShubham" target="_blank" title="GitHub">
+                <img src="https://win98icons.alexmeub.com/icons/png/msagent_file-1.png" width="20">
+            </a>
+            <a href="mailto:shubhamkhanal593@gmail.com" title="Email">
+                <img src="https://win98icons.alexmeub.com/icons/png/outlook_express-5.png" width="20">
+            </a>
+            <a href="tel:+9779848962948" title="WhatsApp">
+                <img src="https://win98icons.alexmeub.com/icons/png/phone-0.png" width="20">
+            </a>
+        </div>
+
+        <div class="tray-area">
+            <div class="tray-icon" title="Sound"><img
+                    src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-0.png" width="12"></div>
+            <div id="clock">12:00 PM</div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

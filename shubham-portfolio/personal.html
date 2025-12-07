@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Space - Shubham Khanal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.personal-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="desktop-container">
+
+        <!-- Desktop Shortcuts -->
+        <a href="index.html" class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="My Computer">
+            <span>My Profile</span>
+        </a>
+
+        <a href="projects.html" class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="Projects">
+            <span>My Projects</span>
+        </a>
+
+        <div class="desktop-icon" onclick="location.reload()">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-4.png" alt="Personal">
+            <span>Personal Space</span>
+        </div>
+
+        <div class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </div>
+
+        <!-- Main Personal Window -->
+        <div class="window" id="window-personal"
+            style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 850px; height: 650px;">
+            <div class="title-bar">
+                <div class="title-bar-text">C:\My Documents\Personal Space</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-personal')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-personal')">□</div>
+                    <a href="index.html" class="control-btn close">X</a>
+                </div>
+            </div>
+
+            <div style="display: flex; height: 100%;">
+                <!-- Sidebar -->
+                <div
+                    style="width: 180px; background: #fff; border-right: 1px solid #ccc; padding: 10px; display: flex; flex-direction: column; gap: 5px;">
+                    <strong style="font-size: 12px; margin-bottom: 5px; color: #0055EA;">Folders</strong>
+
+                    <div class="xp-btn" onclick="showSection('sec-tennis')" style="text-align: left;">🎾 Tennis Gallery
+                    </div>
+                    <div class="xp-btn" onclick="showSection('sec-hiking')" style="text-align: left;">🥾 Hiking
+                        Adventures</div>
+                    <div class="xp-btn" onclick="showSection('sec-sports')" style="text-align: left;">⚽ Sports Life
+                    </div>
+                    <div class="xp-btn" onclick="showSection('sec-movies')" style="text-align: left;">🎬 Movie Picks
+                    </div>
+                    <div class="xp-btn" onclick="showSection('sec-books')" style="text-align: left;">📚 Books</div>
+                    <div class="xp-btn" onclick="showSection('sec-astro')" style="text-align: left;">🔮 Astrology & Palm
+                    </div>
+                    <div class="xp-btn" onclick="showSection('sec-blog')" style="text-align: left;">✍️ Poems & Stories
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="window-content" id="content-area" style="background: #fff; position: relative;">
+
+                    <!-- Intro State -->
+                    <div id="sec-intro" class="personal-section"
+                        style="text-align: center; padding-top: 50px; color: #666;">
+                        <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-4.png"
+                            width="64">
+                        <h3>Welcome to my Personal Space</h3>
+                        <p>Select a folder from the left to explore.</p>
+                    </div>
+
+                    <!-- Tennis -->
+                    <div id="sec-tennis" class="personal-section hidden">
+                        <h3>Tennis Gallery</h3>
+                        <p>Moments on the court.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item"><img src="src/tennis/20.png" alt="Tennis"></div>
+                            <div class="gallery-item"><img src="src/tennis/21.png" alt="Tennis"></div>
+                            <div class="gallery-item"><img src="src/tennis/22.png" alt="Tennis"></div>
+                            <div class="gallery-item"><img src="src/tennis/24.png" alt="Tennis"></div>
+                            <div class="gallery-item"><img src="src/tennis/09876.png" alt="Tennis"></div>
+                            <div class="gallery-item"><img src="src/tennis/76543.png" alt="Tennis"></div>
+                        </div>
+                    </div>
+
+                    <!-- Hiking -->
+                    <div id="sec-hiking" class="personal-section hidden">
+                        <h3>Hiking Adventures</h3>
+                        <p>Exploring the unknown.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item"><img src="src/hiking/10.png" alt="Hike"></div>
+                            <div class="gallery-item"><img src="src/hiking/11.png" alt="Hike"></div>
+                            <div class="gallery-item"><img src="src/hiking/12.png" alt="Hike"></div>
+                            <div class="gallery-item"><img src="src/hiking/13.png" alt="Hike"></div>
+                            <div class="gallery-item"><img src="src/hiking/14.png" alt="Hike"></div>
+                            <div class="gallery-item"><img src="src/hiking/15.png" alt="Hike"></div>
+                        </div>
+                    </div>
+                    <!-- Sports -->
+                    <div id="sec-sports" class="personal-section hidden">
+                        <h3>Sports Life</h3>
+                        <p>More than just tennis.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item"><img src="src/fitness/1.png" alt="Sport"></div>
+                            <div class="gallery-item"><img src="src/fitness/2.png" alt="Sport"></div>
+                            <div class="gallery-item"><img src="src/fitness/3.png" alt="Sport"></div>
+                            <div class="gallery-item"><img src="src/fitness/4.png" alt="Sport"></div>
+                        </div>
+                    </div>
+
+                    <!-- Movies -->
+                    <div id="sec-movies" class="personal-section hidden">
+                        <h3>Movie Recommendations</h3>
+                        <div
+                            style="background: #000; color: #0f0; padding: 15px; font-family: 'Courier New', monospace; border-radius: 5px;">
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 5px; border-bottom: 1px dashed #333;">> Interstellar</li>
+                                <li style="padding: 5px; border-bottom: 1px dashed #333;">> The Pursuit of Happyness
+                                </li>
+                                <li style="padding: 5px; border-bottom: 1px dashed #333;">> 3 Idiots</li>
+                                <li style="padding: 5px; border-bottom: 1px dashed #333;">> Inception</li>
+                                <li style="padding: 5px;">> The Shawshank Redemption</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Books -->
+                    <div id="sec-books" class="personal-section hidden">
+                        <h3>Book Recommendations</h3>
+                        <div style="display: flex; gap: 10px; background: #8b4513; padding: 20px; border-radius: 4px;">
+                            <div
+                                style="width: 60px; height: 90px; background: #f2f2f2; display: flex; align-items: center; justify-content: center; font-size: 9px; text-align: center; border: 1px solid #444;">
+                                Alchemist</div>
+                            <div
+                                style="width: 60px; height: 90px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 9px; text-align: center; border: 1px solid #444;">
+                                Atomic Habits</div>
+                            <div
+                                style="width: 60px; height: 90px; background: #fff0f5; display: flex; align-items: center; justify-content: center; font-size: 9px; text-align: center; border: 1px solid #444;">
+                                Rich Dad Poor Dad</div>
+                        </div>
+                    </div>
+
+                    <!-- Astrology -->
+                    <div id="sec-astro" class="personal-section hidden">
+                        <h3>Astrology & Palm Reading</h3>
+                        <p>Understanding the stars and lines.</p>
+                        <div
+                            style="background: #1a1a2e; color: #e94560; padding: 20px; border-radius: 5px; text-align: center;">
+                            <p>"The universe is written in symbols."</p>
+                            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                                <button class="xp-btn">Palm Reading Guide</button>
+                                <button class="xp-btn">Birth Chart Basics</button>
+                                <button class="xp-btn">Ask Shubham</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog -->
+                    <div id="sec-blog" class="personal-section hidden">
+                        <h3>Poems & Stories</h3>
+                        <div class="typewriter-paper">
+                            <strong>Untitled Poem</strong><br><br>
+                            The code runs deep,<br>
+                            While the world's asleep.<br>
+                            Pixels dance in light,<br>
+                            Creating a vintage sight.<br>
+                            <br>
+                            ... (More writings coming soon)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="background: #ECE9D8; border-top: 1px solid #ccc; padding: 2px 5px; font-size: 11px;">
+                7 Folders
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar (Reused) -->
+    <div class="taskbar">
+        <div class="start-btn">
+            <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="Win">
+            Start
+        </div>
+        <div class="taskbar-divider"></div>
+        <div class="tray-area">
+            <div id="clock">12:10 PM</div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay hidden" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <div id="lightbox-prev" class="lightbox-nav prev">&lt;</div>
+        <div id="lightbox-next" class="lightbox-nav next">&gt;</div>
+        <img class="lightbox-image" id="lightbox-img" src="">
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Check hash for direct linking
+        if (window.location.hash) {
+            const secId = 'sec-' + window.location.hash.substring(1);
+            if (document.getElementById(secId)) {
+                showSection(secId);
+            }
+        }
+    </script>
+</body>
+
+</html>

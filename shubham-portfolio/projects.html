@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects - Shubham Khanal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+
+    <!-- Desktop Environment -->
+    <div class="desktop-container">
+
+        <!-- Desktop Shortcuts -->
+        <div class="desktop-icon" onclick="openWindow('window-profile')">
+            <!-- Using onclick here if index.html functions are available/shared, or link back -->
+            <a href="index.html"
+                style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+                <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="My Computer">
+                <span>My Profile</span>
+            </a>
+        </div>
+
+        <div class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="Projects">
+            <span>My Projects</span>
+        </div>
+
+        <a href="personal.html" class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-4.png" alt="Personal">
+            <span>Personal Space</span>
+        </a>
+
+        <div class="desktop-icon">
+            <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </div>
+
+        <!-- Main Projects Window -->
+        <div class="window" id="window-projects"
+            style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 600px; display: block;">
+            <div class="title-bar">
+                <div class="title-bar-text">C:\My Documents\Projects</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-projects')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-projects')">□</div>
+                    <a href="index.html" class="control-btn close">X</a>
+                </div>
+            </div>
+
+            <!-- Address Bar / Toolbar mockup -->
+            <div
+                style="background: #ECE9D8; padding: 5px; border-bottom: 1px solid #999; display: flex; align-items: center; gap: 5px;">
+                <span style="font-size: 11px;">Address:</span>
+                <input type="text" value="C:\My Documents\Projects"
+                    style="flex: 1; border: 1px solid #777; padding: 2px; font-size: 11px;" readonly>
+                <div class="xp-btn">Go</div>
+            </div>
+
+            <div class="window-content" style="background: #fff; height: calc(100% - 60px); overflow-y: auto;">
+                <p style="margin: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee; color: #666;">Select an
+                    item to view its description.</p>
+
+                <div class="project-grid" style="padding: 10px;">
+
+                    <!-- Project 1 -->
+                    <div class="xp-card">
+                        <img src="https://win98icons.alexmeub.com/icons/png/camera_vid-1.png"
+                            style="width: 32px; margin-bottom: 5px;">
+                        <h3>Tennis Analysis (YOLOv8)</h3>
+                        <p>Object detection on tennis match footage. Detects player, racket, and ball.</p>
+                        <div style="display: flex; gap: 5px; justify-content: center; margin-top: auto;">
+                            <!-- Using actual file paths discovered -->
+                            <div class="xp-btn"
+                                onclick="openLightbox(['src/Tennis_analysis/423432432423.png', 'src/Tennis_analysis/45674389240324.png'])">
+                                View Gallery</div>
+                            <div class="xp-btn" onclick="openPdf('src/Tennis_analysis/tennis_doc.pdf')">View PDF</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="xp-card">
+                        <img src="https://win98icons.alexmeub.com/icons/png/joystick-0.png"
+                            style="width: 32px; margin-bottom: 5px;">
+                        <h3>RC Car Simulator</h3>
+                        <p>Raspberry Pi 4 + Logitech G29. Realistic driving experience with PWM control.</p>
+                        <div style="display: flex; gap: 5px; justify-content: center; margin-top: auto;">
+                            <!-- Using actual file paths discovered -->
+                            <div class="xp-btn"
+                                onclick="openLightbox(['src/RC_car/a.png', 'src/RC_car/f.png', 'src/RC_car/k.png', 'src/RC_car/s.png', 'src/RC_car/11212121.png'])">
+                                View Gallery</div>
+                            <div class="xp-btn" onclick="openPdf('src/RC_car/rc_car_doc.pdf')">View PDF</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="xp-card">
+                        <img src="https://win98icons.alexmeub.com/icons/png/utopia_smiley-0.png"
+                            style="width: 32px; margin-bottom: 5px;">
+                        <h3>ReFoodify (Figma)</h3>
+                        <p>Concept app to reduce food wastage. User journeys for donors and NGOs.</p>
+                        <div style="display: flex; gap: 5px; justify-content: center; margin-top: auto;">
+                            <!-- Using actual file paths discovered -->
+                            <div class="xp-btn" onclick="openLightbox('src/ReFoodify/refoodify.png')">View Image</div>
+                            <div class="xp-btn" onclick="openPdf('src/ReFoodify/refoodify_doc.pdf')">View PDF</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="xp-card">
+                        <img src="https://win98icons.alexmeub.com/icons/png/chm-2.png"
+                            style="width: 32px; margin-bottom: 5px;">
+                        <h3>Khana Baanam</h3>
+                        <p>Android App (Kotlin). Recipe teacher for customized cooking learning.</p>
+                        <div class="xp-btn">View Screenshots</div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="xp-card">
+                        <img src="https://win98icons.alexmeub.com/icons/png/trust0-0.png"
+                            style="width: 32px; margin-bottom: 5px;">
+                        <h3>Online Auction System</h3>
+                        <p>Java NetBeans project. Multi-user bidding platform with timers.</p>
+                        <div class="xp-btn">Check Features</div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="xp-card">
+                        <img src="https://win98icons.alexmeub.com/icons/png/help_book_big-0.png"
+                            style="width: 32px; margin-bottom: 5px;">
+                        <h3>ApplyBro</h3>
+                        <p>Scholarship Helper. Student-centric platform for finding opportunities.</p>
+                        <div class="xp-btn">Visit Concept</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="background: #ECE9D8; border-top: 1px solid #ccc; padding: 2px 5px; font-size: 11px;">
+                6 objects
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar (Reused) -->
+    <div class="taskbar">
+        <div class="start-btn">
+            <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="Win">
+            Start
+        </div>
+        <div class="taskbar-divider"></div>
+        <div style="display: flex; gap: 10px; margin-left: 10px;">
+            <!-- Same social icons logic -->
+            <a href="https://www.linkedin.com/in/shubham-khanal-445a4a245/" target="_blank"><img
+                    src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-0.png" width="20"></a>
+        </div>
+        <div class="tray-area">
+            <div id="clock">12:05 PM</div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay hidden" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <div id="lightbox-prev" class="lightbox-nav prev">&lt;</div>
+        <div id="lightbox-next" class="lightbox-nav next">&gt;</div>
+        <img class="lightbox-image" id="lightbox-img" src="">
+    </div>
+
+</body>
+
+</html>

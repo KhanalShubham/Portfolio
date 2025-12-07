@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact | Shubham Khanal</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="xp-grid-bg">
+
+    <div class="desktop">
+
+        <div class="dock dock-left">
+            <a href="index.html" class="dock-item">
+                <div class="icon-square icon-profile">S</div>
+                <span>home</span>
+            </a>
+            <a href="about.html" class="dock-item">
+                <div class="icon-folder"></div>
+                <span>about</span>
+            </a>
+            <div class="dock-item">
+                <div class="icon-folder icon-yellow"></div>
+                <span>contact</span>
+            </div>
+        </div>
+
+        <main class="window window-main">
+            <div class="window-title-bar">
+                <span class="window-title">C:\SHUBHAM_KHANAL\portfolio\contact</span>
+                <span class="window-controls">
+                    <span class="btn-box"></span>
+                    <span class="btn-box"></span>
+                    <span class="btn-box btn-close"></span>
+                </span>
+            </div>
+
+            <div class="window-body contact-body">
+                <section class="about-section">
+                    <h1 class="section-title">Let’s work together</h1>
+                    <p class="body-text">
+                        Whether it’s a project, internship, research collaboration, or freelance work,
+                        I’d be happy to hear from you. Fill in the form below — it will open your email
+                        app with all the details pre-filled.
+                    </p>
+                </section>
+
+                <section class="about-section">
+                    <form id="contact-form" class="contact-form">
+                        <label class="form-label">
+                            Your name
+                            <input type="text" name="name" required />
+                        </label>
+
+                        <label class="form-label">
+                            Your email
+                            <input type="email" name="email" required />
+                        </label>
+
+                        <label class="form-label">
+                            Subject
+                            <input type="text" name="subject" placeholder="Project idea, collaboration, etc." />
+                        </label>
+
+                        <label class="form-label">
+                            Message
+                            <textarea name="message" rows="5" required></textarea>
+                        </label>
+
+                        <button type="submit" class="btn-primary">Open email app</button>
+                    </form>
+
+                    <p class="body-text small-hint">
+                        Or contact me directly:<br />
+                        <strong>Email:</strong>
+                        <a href="mailto:shubhamkhanal593@gmail.com">shubhamkhanal593@gmail.com</a><br />
+                        <strong>WhatsApp / Viber:</strong>
+                        <a href="tel:+9779848962948">+977-9848962948</a>
+                    </p>
+                </section>
+            </div>
+        </main>
+
+        <footer class="taskbar">
+            <a href="index.html" class="taskbar-start">⊞ Start</a>
+            <div class="taskbar-item">Contact_Shuhbam.eml</div>
+            <div class="taskbar-clock" id="taskbar-clock"></div>
+        </footer>
+
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

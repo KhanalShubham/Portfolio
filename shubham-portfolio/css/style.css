@@ -1,0 +1,809 @@
+/* === Global & Reset === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tahoma', 'Verdana', 'Segoe UI', sans-serif;
+    background-color: #539ded;
+    /* XP Default Blue-ish */
+    background-image: url('https://i.imgur.com/Zk6TR5k.jpg');
+    /* Optional Bliss wallpaper fallback or solid color */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #000;
+    overflow: hidden;
+    /* Desktop feel */
+    height: 100vh;
+    user-select: none;
+    /* Desktop icon feel */
+}
+
+/* Fallback background if image fails or for "Grid" request */
+body.xp-grid-bg {
+    background-color: #3B6EA5;
+    /* Classic blue desktop color */
+    background-image: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+    /* Arrow cursor for desktop feel */
+}
+
+/* === Splash Screen === */
+/* === Splash Screen (XP Boot Style) === */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    user-select: none;
+}
+
+.xp-boot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.xp-logo-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.xp-logo-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.xp-logo-squares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    transform: rotate(-10deg);
+}
+
+.sq {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #000;
+}
+
+.sq-r {
+    background: #f25022;
+    border-top-left-radius: 4px;
+}
+
+.sq-g {
+    background: #7fba00;
+    border-top-right-radius: 4px;
+}
+
+.sq-b {
+    background: #00a4ef;
+    border-bottom-left-radius: 4px;
+}
+
+.sq-y {
+    background: #ffb900;
+    border-bottom-right-radius: 4px;
+}
+
+.xp-text-main {
+    font-size: 72px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.xp-text-sub {
+    font-size: 72px;
+    color: #f25022;
+    /* XP Orange */
+    font-weight: normal;
+    /* "xp" is lighter/superscript usually, but here bold looks good for Portfolio */
+    font-style: italic;
+    position: relative;
+    top: -5px;
+}
+
+.xp-edition {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+    margin-left: 5px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+/* Boot Bar */
+.splash-bar-container {
+    width: 250px;
+    height: 18px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    padding: 2px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.splash-bar-scroller {
+    display: flex;
+    gap: 2px;
+    position: absolute;
+    left: -50px;
+    animation: bootScroll 2s infinite linear;
+}
+
+.bar-block {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(to bottom, #2d55e0 0%, #1a3ab3 100%);
+    border-radius: 2px;
+    box-shadow: 0 0 5px #2d55e0;
+}
+
+.boot-footer {
+    color: #ccc;
+    font-size: 10px;
+    margin-top: 50px;
+}
+
+@keyframes bootScroll {
+    0% {
+        left: -40px;
+    }
+
+    100% {
+        left: 250px;
+    }
+}
+
+/* === Desktop Environment === */
+.desktop-container {
+    height: calc(100vh - 40px);
+    /* Minus taskbar */
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 20px;
+}
+
+/* Desktop Icons */
+.desktop-icon {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.desktop-icon:hover {
+    background-color: rgba(0, 100, 255, 0.2);
+    border-color: rgba(0, 100, 255, 0.4);
+}
+
+.desktop-icon img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 5px;
+    /* Pixelated filter for retro look if needed, but smooth is requested */
+}
+
+.desktop-icon span {
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+/* === Windows === */
+.window {
+    position: absolute;
+    background: #ECE9D8;
+    border: 1px solid #0055EA;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 90%;
+    max-height: 90%;
+    transition: all 0.2s ease-in-out;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Start centered */
+}
+
+/* Added states for min/max */
+.window.maximized {
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    z-index: 999;
+}
+
+.window.minimized {
+    display: none;
+}
+
+.window.focused {
+    z-index: 100;
+}
+
+.title-bar {
+    background: linear-gradient(to bottom, #0058EE 0%, #3593FF 4%, #288EFB 18%, #2183FA 46%, #0066FD 51%, #1D75F0 76%, #1D6AE3 100%);
+    /* XP Blue Gradient */
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: move;
+    /* If draggable */
+    text-shadow: 1px 1px #0f1089;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.control-btn {
+    width: 21px;
+    height: 21px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #fff 0%, #ECE9D8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #000;
+    text-shadow: none;
+    cursor: pointer;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn.close {
+    background: linear-gradient(to bottom, #e08b86 0%, #d4564c 100%);
+    color: white;
+}
+
+.window-content {
+    padding: 15px;
+    background: #fff;
+    flex: 1;
+    overflow-y: auto;
+    font-size: 12px;
+    border-left: 3px solid #ECE9D8;
+    border-right: 3px solid #ECE9D8;
+    border-bottom: 3px solid #ECE9D8;
+}
+
+.window-content::-webkit-scrollbar {
+    width: 16px;
+    background: #ECE9D8;
+}
+
+.window-content::-webkit-scrollbar-thumb {
+    background: #CDD6E5;
+    border: 1px solid #fff;
+}
+
+/* === Layout Specifics === */
+
+/* Profile Window Styles */
+.profile-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #0055EA;
+    border-radius: 50%;
+    /* Circular as requested */
+    object-fit: cover;
+    object-position: center 15%;
+    padding: 2px;
+    background: #fff;
+}
+
+.bio-text {
+    font-family: 'Georgia', serif;
+    /* Poetic feel */
+    font-style: italic;
+    color: #444;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.quick-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.fact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    background: #f1f1f1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.fact-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Project Cards (Grid View) */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.xp-card {
+    background: #ECE9D8;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 1px 1px 0 #fff;
+}
+
+.xp-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 13px;
+    color: #0055EA;
+}
+
+.xp-card p {
+    margin: 0 0 10px 0;
+    color: #333;
+    flex-grow: 1;
+}
+
+.xp-btn {
+    background: linear-gradient(to bottom, #fff 0%, #ECE9D8 100%);
+    border: 1px solid #003c74;
+    border-radius: 3px;
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.xp-btn:hover {
+    box-shadow: inset 0 0 2px rgba(255, 255, 0, 0.5);
+    /* Highlight */
+}
+
+/* Personal Space Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.gallery-item {
+    border: 2px solid #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Blog/Typewriter */
+.typewriter-paper {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 300px;
+    color: #222;
+    line-height: 1.8;
+}
+
+/* Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, #245DDA 0%, #306EFF 4%, #1850d1 100%);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: 9999;
+    border-top: 2px solid #3e7bfe;
+}
+
+.start-btn {
+    height: 40px;
+    /* Full height overlap visually */
+    background: linear-gradient(to bottom, #449129 0%, #327515 100%);
+    /* XP Green */
+    border-radius: 0 10px 10px 0;
+    /* Rounded right */
+    padding: 0 15px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    box-shadow: inset 0px 2px 5px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.start-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.taskbar-divider {
+    width: 2px;
+    height: 80%;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 5px;
+}
+
+.tray-area {
+    margin-left: auto;
+    background: #1290e5;
+    /* Tray blue */
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 11px;
+    border-left: 1px solid #1373b5;
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.tray-icon {
+    width: 16px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    /* Just for placeholders */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Helper Classes */
+.hidden {
+    display: none !important;
+}
+
+border: 2px solid #0055EA;
+border-radius: 50%;
+/* Circular as requested */
+object-fit: cover;
+object-position: center 15%;
+padding: 2px;
+background: #fff;
+}
+
+.bio-text {
+    font-family: 'Georgia', serif;
+    /* Poetic feel */
+    font-style: italic;
+    color: #444;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.quick-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.fact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    background: #f1f1f1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.fact-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Project Cards (Grid View) */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.xp-card {
+    background: #ECE9D8;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 1px 1px 0 #fff;
+}
+
+.xp-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 13px;
+    color: #0055EA;
+}
+
+.xp-card p {
+    margin: 0 0 10px 0;
+    color: #333;
+    flex-grow: 1;
+}
+
+.xp-btn {
+    background: linear-gradient(to bottom, #fff 0%, #ECE9D8 100%);
+    border: 1px solid #003c74;
+    border-radius: 3px;
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.xp-btn:hover {
+    box-shadow: inset 0 0 2px rgba(255, 255, 0, 0.5);
+    /* Highlight */
+}
+
+/* Personal Space Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.gallery-item {
+    border: 2px solid #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Blog/Typewriter */
+.typewriter-paper {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 300px;
+    color: #222;
+    line-height: 1.8;
+}
+
+/* Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, #245DDA 0%, #306EFF 4%, #1850d1 100%);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: 9999;
+    border-top: 2px solid #3e7bfe;
+}
+
+.start-btn {
+    height: 40px;
+    /* Full height overlap visually */
+    background: linear-gradient(to bottom, #449129 0%, #327515 100%);
+    /* XP Green */
+    border-radius: 0 10px 10px 0;
+    /* Rounded right */
+    padding: 0 15px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    box-shadow: inset 0px 2px 5px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.start-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.taskbar-divider {
+    width: 2px;
+    height: 80%;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 5px;
+}
+
+.tray-area {
+    margin-left: auto;
+    background: #1290e5;
+    /* Tray blue */
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 11px;
+    border-left: 1px solid #1373b5;
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.tray-icon {
+    width: 16px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    /* Just for placeholders */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Helper Classes */
+.hidden {
+    display: none !important;
+}
+
+.retro-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* === Lightbox === */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    /* Dark background */
+    z-index: 10000;
+    /* On top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* Click anywhere close */
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    /* Don't close if clicked on image */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 3rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
