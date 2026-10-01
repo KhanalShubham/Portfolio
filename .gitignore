@@ -1,0 +1,17 @@
+# Personal photo and video archives
+bachelor memories/
+Chisapani/
+Manang/
+
+# Root temporary / duplicate image copies (organized inside shubham-portfolio/src/certificates/)
+/*.jpg
+/*.jpeg
+package-lock.json
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+*.tmp

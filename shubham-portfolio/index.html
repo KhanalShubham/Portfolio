@@ -3,15 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Shubham Khanal - XP Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Khanal - Personal Computer (Windows XP)</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- FontAwesome for Icons (Optional, using text/unicode or simple images for now to stay dependency-free if possible, using emoji or basic svgs) -->
-    <!-- Creating simple SVG icons inline or text based on Prompt request for "playful folder icons" -->
+    <link rel="icon" href="src/icons/computer_16.png">
 </head>
 
 <body>
 
-    <!-- Splash Screen -->
+    <!-- ==========================================
+         1. Splash Screen (XP Boot Screen)
+         ========================================== -->
     <div id="splash-screen">
         <div class="xp-boot-container">
             <div class="xp-logo-row">
@@ -23,9 +25,9 @@
                         <span class="sq sq-y"></span>
                     </div>
                     <span class="xp-text-main">Shubham</span>
-                    <span class="xp-text-sub">Portfolio</span>
+                    <span class="xp-text-sub">OS</span>
                 </div>
-                <div class="xp-edition">Experience His Journey</div>
+                <div class="xp-edition">Personal Edition</div>
             </div>
 
             <div class="splash-bar-container">
@@ -36,156 +38,2554 @@
                 </div>
             </div>
 
-            <div class="boot-footer">
-                Copyright © Shubham Khanal
+            <!-- Personality Loading Console -->
+            <div class="boot-console-text">
+                Initializing Shubham OS...<br>
+                Loading projects............ OK<br>
+                Loading memories............ OK<br>
+                Loading ideas............... OK<br>
+                Loading personality......... 73%<br><br>
+                <span style="color: #fbbf24; font-weight: bold;">⚠ Warning: Personality could not be fully loaded.</span>
+            </div>
+
+            <button class="xp-btn" onclick="dismissBootScreen()" style="font-weight: bold; padding: 6px 24px; font-size: 12px;">
+                [ Continue to Desktop ]
+            </button>
+
+            <div class="boot-footer" onclick="dismissBootScreen()">
+                Copyright © Shubham Khanal · Click to skip boot
             </div>
         </div>
     </div>
 
-    <!-- Desktop Environment -->
+    <!-- ==========================================
+         2. Desktop Environment
+         ========================================== -->
     <div class="desktop-container" id="desktop">
+        <!-- Rubberband Selection Box -->
+        <div id="selection-box"></div>
 
         <!-- Desktop Shortcuts -->
-        <div class="desktop-icon" onclick="openWindow('window-profile')">
-            <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="My Computer">
-            <span>My Profile</span>
+        <!-- Primary Column: Classic XP Operating System Desktop -->
+        <div class="desktop-icon" data-icon-id="icon-thispc" data-tooltip="Opens Shubham's system & filesystem."
+            onclick="openWindow('window-thispc')">
+            <img src="src/icons/computer.png" alt="My Computer">
+            <span>My Computer</span>
         </div>
 
-        <a href="projects.html" class="desktop-icon">
-            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="Projects">
+        <div class="desktop-icon" data-icon-id="icon-whoami" data-tooltip="Profile, journey, career & skills."
+            onclick="openWindow('window-profile')">
+            <img src="src/icons/xp_235.png" alt="My Documents">
+            <span>My Documents</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-ie" data-tooltip="Explore web links, portfolio & profiles."
+            onclick="openWindow('window-ie')">
+            <img src="src/icons/ie.png" alt="Internet Explorer">
+            <span>Internet Explorer</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-projects" data-tooltip="Full stack systems & engineering projects."
+            onclick="openWindow('window-projects')">
+            <img src="src/icons/folder.png" alt="My Projects">
             <span>My Projects</span>
-        </a>
+        </div>
 
-        <a href="personal.html" class="desktop-icon">
-            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-4.png" alt="Personal">
+        <div class="desktop-icon" data-icon-id="icon-personal" data-tooltip="Tennis, Himalayan treks & personal space."
+            onclick="openWindow('window-personal')">
+            <img src="src/icons/xp_238.png" alt="Personal Space">
             <span>Personal Space</span>
-        </a>
+        </div>
 
-        <div class="desktop-icon">
-            <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin">
+        <div class="desktop-icon" data-icon-id="icon-recycle" data-tooltip="Everything I didn't say."
+            onclick="openRecycleBin()">
+            <img src="src/icons/xp_33.png" id="desktop-recycle-icon" alt="Recycle Bin">
             <span>Recycle Bin</span>
         </div>
 
-        <!-- Main Bio Window -->
-        <div class="window" id="window-profile"
-            style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 500px;">
+        <!-- Column 2: Honors & Professional Files -->
+        <div class="desktop-icon" data-icon-id="icon-achievements" data-tooltip="National Games Medals & World Junior Championships."
+            onclick="openWindow('window-achievements')">
+            <img src="src/icons/xp_44.png" alt="Achievements">
+            <span>Achievements</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-certificates" data-tooltip="Data Science, SQL & Academic certificates."
+            onclick="openWindow('window-certificates')">
+            <img src="src/icons/xp_152.png" alt="Certificates">
+            <span>Certificates</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-ideas" data-tooltip="Selected essays: Prompt vs Context Engineering, AI & Soul."
+            onclick="openWindow('window-ideas')">
+            <img src="src/icons/notepad.png" alt="Ideas">
+            <span>Ideas.txt</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-downloads" data-tooltip="CV, Research papers & technical documentation."
+            onclick="openWindow('window-downloads')">
+            <img src="src/icons/xp_14.png" alt="Downloads">
+            <span>Downloads</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-donotopen" data-tooltip="I told you not to open it."
+            onclick="openEasterEggEnd()">
+            <img src="src/icons/xp_36.png" alt="DO_NOT_OPEN">
+            <span>DO_NOT_OPEN</span>
+        </div>
+
+        <!-- Column 3: Applications & Entertainment -->
+        <div class="desktop-icon" data-icon-id="icon-games" data-tooltip="Games folder with Sudoku & retro classics."
+            onclick="openWindow('window-games-folder')">
+            <img src="src/icons/solitaire.png" alt="Games">
+            <span>Games</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-sudoku" data-tooltip="A small break from browsing portfolios."
+            onclick="openWindow('window-sudoku')">
+            <img src="src/icons/xp_167.png" alt="Sudoku">
+            <span>Sudoku</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-paint" data-tooltip="MS Paint - Sketch designs & drawings."
+            onclick="openWindow('window-paint')">
+            <img src="src/icons/paint.png" alt="Paint">
+            <span>Paint</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-media" data-tooltip="Ambient tracks for coding sessions."
+            onclick="openWindow('window-media')">
+            <img src="src/icons/winamp.png" alt="Media Player">
+            <span>Media Player</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-outlook" data-tooltip="Send message & get in touch."
+            onclick="openWindow('window-contact')">
+            <img src="src/icons/mail.png" alt="Outlook Express">
+            <span>Outlook Express</span>
+        </div>
+
+        <!-- Column 4: System Tools -->
+        <div class="desktop-icon" data-icon-id="icon-notepad" data-tooltip="Personal notes & read me first."
+            onclick="openWindow('window-notepad')">
+            <img src="src/icons/notepad.png" alt="Notepad">
+            <span>Notepad</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-cmd" data-tooltip="Shubham OS terminal for engineers."
+            onclick="openWindow('window-cmd')">
+            <img src="src/icons/xp_47.png" alt="Command Prompt">
+            <span>Command Prompt</span>
+        </div>
+
+        <div class="desktop-icon" data-icon-id="icon-control" data-tooltip="Display settings & wallpaper."
+            onclick="openWindow('window-display')">
+            <img src="src/icons/xp_25.png" alt="Control Panel">
+            <span>Control Panel</span>
+        </div>
+
+        <!-- ==========================================
+             3. Windows
+             ========================================== -->
+
+        <!-- WINDOW 1: Who Am I / My Documents (About Shubham Khanal) -->
+        <div class="window focused" id="window-profile"
+            style="top: 60px; left: 180px; width: 720px; height: 520px;">
             <div class="title-bar">
-                <div class="title-bar-text">About Shubham Khanal</div>
+                <div class="title-bar-left">
+                    <img src="src/icons/xp_235.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">About Shubham Khanal</div>
+                </div>
                 <div class="title-bar-controls">
-                    <div class="control-btn" onclick="minimizeWindow('window-profile')">_</div>
-                    <div class="control-btn" onclick="maximizeWindow('window-profile')">□</div>
-                    <div class="control-btn close" onclick="closeWindow('window-profile')">X</div>
+                    <div class="control-btn" onclick="minimizeWindow('window-profile')" title="Minimize">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-profile')" title="Maximize">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-profile')" title="Close">X</div>
                 </div>
             </div>
-            <div class="window-content">
-                <div class="profile-layout">
-                    <img src="src/shubham.jpg" alt="Shubham Khanal" class="profile-pic">
-                    <div class="profile-info">
-                        <p class="bio-text">
-                            “Hi, I’m Shubham Khanal — a full-stack developer, designer, storyteller, explorer, tennis
-                            player, and someone who is still learning, experimenting, and creating something new every
-                            day.”
-                        </p>
 
-                        <hr style="border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
+            <!-- XP Classic Menubar -->
+            <div class="xp-menubar">
+                <span class="xp-menu-item"><u>F</u>ile</span>
+                <span class="xp-menu-item"><u>E</u>dit</span>
+                <span class="xp-menu-item"><u>V</u>iew</span>
+                <span class="xp-menu-item"><u>F</u>avorites</span>
+                <span class="xp-menu-item"><u>H</u>elp</span>
+            </div>
 
-                        <!-- Quick Facts -->
-                        <strong>Quick Facts:</strong>
-                        <div class="quick-facts-grid">
-                            <div class="fact-item"><img
-                                    src="https://win98icons.alexmeub.com/icons/png/computer_explorer-0.png"
-                                    class="fact-icon"> Fullstack Developer</div>
-                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/paint_file-2.png"
-                                    class="fact-icon"> UI/UX Designer</div>
-                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/chart1-0.png"
-                                    class="fact-icon"> Data Science</div>
-                            <div class="fact-item"><img
-                                    src="https://win98icons.alexmeub.com/icons/png/game_solitaire-1.png"
-                                    class="fact-icon"> Tennis Player</div>
-                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/world-1.png"
-                                    class="fact-icon"> Adventurer</div>
-                            <div class="fact-item"><img
-                                    src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png"
-                                    class="fact-icon"> Movie Lover</div>
-                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/chm-2.png"
-                                    class="fact-icon"> Astrologer</div>
-                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png"
-                                    class="fact-icon"> Poet & Writer</div>
-                            <div class="fact-item"><img src="https://win98icons.alexmeub.com/icons/png/book_open-1.png"
-                                    class="fact-icon"> Lifelong Learner</div>
+            <!-- Property Sheet Tabs (Clean XP Style - No Emojis) -->
+            <div class="whoami-tabs">
+                <div class="whoami-tab active" id="tab-btn-profile" onclick="switchWhoAmITab('profile')">General</div>
+                <div class="whoami-tab" id="tab-btn-about" onclick="switchWhoAmITab('about')">About Me</div>
+                <div class="whoami-tab" id="tab-btn-journey" onclick="switchWhoAmITab('journey')">Journey</div>
+                <div class="whoami-tab" id="tab-btn-career" onclick="switchWhoAmITab('career')">Career</div>
+                <div class="whoami-tab" id="tab-btn-skills" onclick="switchWhoAmITab('skills')">Skills</div>
+                <div class="whoami-tab" id="tab-btn-education" onclick="switchWhoAmITab('education')">Education</div>
+                <div class="whoami-tab" id="tab-btn-currently" onclick="switchWhoAmITab('currently')">Status</div>
+            </div>
+
+            <div class="window-content" style="padding: 0;">
+                <!-- Pane 1: General -->
+                <div id="whoami-pane-profile" class="whoami-content-pane">
+                    <div class="profile-layout">
+                        <img src="src/shubham.jpg" alt="Shubham Khanal" class="profile-pic" onerror="this.src='src/icons/computer.png'">
+                        <div class="profile-info">
+                            <h2 style="margin: 0 0 4px 0; color: #0055ea; font-size: 16px;">Shubham Khanal</h2>
+                            <div style="font-size: 11.5px; font-weight: bold; color: #333; margin-bottom: 8px;">
+                                Full Stack Developer · UI/UX Designer · Data & AI Explorer
+                            </div>
+                            <p class="bio-text" style="font-size: 12px; margin: 0 0 10px 0;">
+                                “Hi, I’m <strong>Shubham Khanal</strong> — Teaching Assistant at Softwarica College, National Soft Tennis Bronze Medalist, and software engineer dedicated to building reliable systems with soul.”
+                            </p>
+
+                            <div style="font-size: 11px; color: #555; margin-bottom: 10px; line-height: 1.5;">
+                                Kathmandu, Nepal · Coventry University (BSc Hons Computing 2023–2026) · Softwarica College<br>
+                                <strong>Teaching Assistant</strong> at Softwarica College of IT & E-Commerce
+                            </div>
+
+                            <fieldset class="xp-groupbox">
+                                <legend>System Overview</legend>
+                                <div class="quick-facts-grid">
+                                    <div class="fact-item"><img src="src/icons/computer_16.png" class="fact-icon" alt=""> Full Stack Dev</div>
+                                    <div class="fact-item"><img src="src/icons/xp_15.png" class="fact-icon" alt=""> AI & Data Science</div>
+                                    <div class="fact-item"><img src="src/icons/xp_44.png" class="fact-icon" alt=""> Teaching Assistant</div>
+                                    <div class="fact-item"><img src="src/icons/xp_44.png" class="fact-icon" alt=""> National Tennis</div>
+                                    <div class="fact-item"><img src="src/icons/paint_16.png" class="fact-icon" alt=""> UI/UX Designer</div>
+                                    <div class="fact-item"><img src="src/icons/xp_14.png" class="fact-icon" alt=""> Himalayan Trails</div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pane 2: About Me -->
+                <div id="whoami-pane-about" class="whoami-content-pane hidden" style="padding: 15px;">
+                    <h3 style="margin-top: 0; color: #0055ea; font-size: 13px;">C:\SHUBHAM\about_me.txt</h3>
+                    <p style="line-height: 1.6; font-size: 11.5px;">
+                        I build systems that bridge human creativity, hardware interactions, and machine intelligence. My work spans from
+                        training computer-vision pipelines (OpenCV, YOLOv8, Pose Estimation) for grassroots tennis analytics,
+                        to wiring hardware steering wheels with Raspberry Pi PWM signals, to architecting production full-stack platforms
+                        like <strong>Hope Care</strong> (JWT, Socket.io, Khalti payment, Docker) and <strong>Medical Exchange Nepal</strong>.
+                    </p>
+                    <p style="line-height: 1.6; font-size: 11.5px;">
+                        Alongside engineering, athletics has defined my discipline: representing Nepal at the <strong>Under-15 Junior World Soft Tennis Championships</strong>
+                        in Korea and winning <strong>Bronze Medals at the 7th and 8th National Games of Nepal</strong>.
+                    </p>
+                    <p style="line-height: 1.6; font-size: 11.5px;">
+                        As a Teaching Assistant at Softwarica College, I guide aspiring software engineers in core programming and system architecture.
+                        I believe software should have soul — crafted with care down to the smallest micro-interaction.
+                    </p>
+                </div>
+
+                <!-- Pane 3: Journey (Timeline - No Emojis) -->
+                <div id="whoami-pane-journey" class="whoami-content-pane hidden" style="padding: 15px;">
+                    <h3 style="margin-top: 0; color: #0055ea; font-size: 13px;">C:\SHUBHAM\journey.txt — Career & Athletics Timeline</h3>
+                    <p style="font-size: 11px; color: #555; margin-bottom: 15px;">Chronological timeline connecting athletics, university, software engineering, and mentorship:</p>
+                    
+                    <div class="journey-timeline">
+                        <div class="journey-node">
+                            <span class="journey-year">2016</span>
+                            <div class="journey-content">
+                                <strong>[Bronze Medal] 7th National Games of Nepal</strong><br>
+                                Secured 3rd position in Soft Tennis Team Event at the 7th National Games (Satau Rastriya Khelkud Pratiyogita) in Purwanchal, representing Madhya Pashchimanchal / Banke & Dang District. Recognized by the National Sports Council of Nepal.
+                            </div>
                         </div>
 
-                        <hr style="border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
+                        <div class="journey-node">
+                            <span class="journey-year">2017</span>
+                            <div class="journey-content">
+                                <strong>[National Selection] 1st Asia Cup / Korea Cup Soft Tennis</strong><br>
+                                Selected through national trials in Kathmandu representing Mid Western Region for the 1st Asia Cup / Korea Cup Soft Tennis Championship in Anseong City, Korea.<br>
+                                <em>Also participated in Geofest International 2017 (City Montessori School, Lucknow, India).</em>
+                            </div>
+                        </div>
 
-                        <!-- Folders / Navigation -->
-                        <strong>Explore More:</strong>
-                        <div style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
-                            <a href="personal.html#tennis" style="text-align: center; width: 60px; cursor: pointer;">
-                                <img src="https://win98icons.alexmeub.com/icons/png/game_solitaire-1.png" width="32"
-                                    alt="Tennis">
-                                <div style="font-size: 11px;">Tennis</div>
-                            </a>
-                            <a href="personal.html#hiking" style="text-align: center; width: 60px; cursor: pointer;">
-                                <img src="https://win98icons.alexmeub.com/icons/png/world-1.png" width="32"
-                                    alt="Hiking">
-                                <div style="font-size: 11px;">Hiking</div>
-                            </a>
-                            <a href="personal.html#movies" style="text-align: center; width: 60px; cursor: pointer;">
-                                <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" width="32"
-                                    alt="Movies">
-                                <div style="font-size: 11px;">Movies</div>
-                            </a>
-                            <a href="personal.html#books" style="text-align: center; width: 60px; cursor: pointer;">
-                                <img src="https://win98icons.alexmeub.com/icons/png/book_open-1.png" width="32"
-                                    alt="Books">
-                                <div style="font-size: 11px;">Books</div>
-                            </a>
-                            <a href="personal.html#astrology" style="text-align: center; width: 60px; cursor: pointer;">
-                                <img src="https://win98icons.alexmeub.com/icons/png/chm-2.png" width="32"
-                                    alt="Astrology">
-                                <div style="font-size: 11px;">Astrology</div>
-                            </a>
-                            <a href="personal.html#poems" style="text-align: center; width: 60px; cursor: pointer;">
-                                <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" width="32"
-                                    alt="Poems">
-                                <div style="font-size: 11px;">Poems</div>
-                            </a>
+                        <div class="journey-node">
+                            <span class="journey-year">2018</span>
+                            <div class="journey-content">
+                                <strong>[World Junior Championship & Gold Medal] Suncheon, South Korea</strong><br>
+                                Awarded ISTF Official Diploma representing Nepal at the 3rd World Soft Tennis Championships in Suncheon, Korea.<br>
+                                Secured <strong>1st Position (Gold Medal)</strong> in U-15 Singles at the NSTA Junior National Tournament in Kathmandu.
+                            </div>
+                        </div>
+
+                        <div class="journey-node">
+                            <span class="journey-year">2019</span>
+                            <div class="journey-content">
+                                <strong>[Bronze Medal] 8th National Games of Nepal (Doubles)</strong><br>
+                                Awarded Praman Patra by National Sports Council Nepal for securing 3rd position in Soft Tennis Men's Doubles at the 8th National Games (Aathau Rastriya Khelkud 2075/076, Lumbini/Dang).
+                            </div>
+                        </div>
+
+                        <div class="journey-node">
+                            <span class="journey-year">2023</span>
+                            <div class="journey-content">
+                                <strong>[BSc Hons Computing] Coventry University & Softwarica College</strong><br>
+                                Began BSc (Hons) in Computing. Focused on Data Science, Algorithms, Computer Vision, and Full-Stack Systems.
+                            </div>
+                        </div>
+
+                        <div class="journey-node">
+                            <span class="journey-year">2024–2025</span>
+                            <div class="journey-content">
+                                <strong>[Systems & AI] Flagship Software Platforms & Hardware Integration</strong><br>
+                                Built Hope Care (full-stack verified medical assistance, Khalti, Socket.io), Medical Exchange Nepal, AI Tennis Vision (YOLOv8 + Pose Estimation), and Remote RC Car Driving Simulator showcased at Softwarica Tech X Elevate. Core of Impact Winner for Aashirbad Care.
+                            </div>
+                        </div>
+
+                        <div class="journey-node">
+                            <span class="journey-year">2025–2026</span>
+                            <div class="journey-content">
+                                <strong>[Teaching Assistant] Academic Mentorship & Professional Certifications</strong><br>
+                                Appointed Teaching Assistant at Softwarica College. Completed Data Scientist in Python Path, SQL & Database Modeling, and advancing ethical computer vision for grassroots sports analytics.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pane: career.exe (Experience) -->
+                <div id="whoami-pane-career" class="whoami-content-pane hidden" style="padding: 15px;">
+                    <h3 style="margin-top: 0; color: #0055ea;">career.exe — Professional Experience & Mentorship</h3>
+                    
+                    <!-- Role 1: Teacher Training Programme in Dang -->
+                    <div style="background: #fff; border: 1px solid #7f9db9; border-radius: 4px; padding: 12px; margin-bottom: 12px; box-shadow: 1px 1px 4px rgba(0,0,0,0.06);">
+                        <div style="display: flex; gap: 14px; align-items: flex-start;">
+                            <img src="src/certificates/teaching_teachers.jpg" alt="Teacher Training Programme Dang" style="width: 110px; height: 110px; object-fit: cover; border-radius: 4px; border: 2px solid #0055ea; flex-shrink: 0; cursor: pointer;" onclick="openPictureViewer('src/certificates/teaching_teachers.jpg', 'Teacher Training Programme — Dang')">
+                            <div>
+                                <h4 style="margin: 0 0 2px 0; color: #1e3a8a; font-size: 14px;">Teacher Training Programme — Facilitator & Trainer</h4>
+                                <div style="font-size: 11.5px; font-weight: bold; color: #0284c7;">Deukhuri Public Secondary English Boarding School</div>
+                                <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Lamahi, Dang, Nepal · Teacher Capacity Building & Pedagogy</div>
+                                <p style="font-size: 11.5px; color: #334155; line-height: 1.5; margin: 0;">
+                                    Conducted specialized teacher training sessions for school educators in Dang, focusing on modern instructional methods, digital classroom tools, interactive student engagement, and practical learning techniques. Honored with token of love and appreciation plaque by school administration.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role 2: Teaching Assistant at Softwarica -->
+                    <div style="background: #fff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 12px; margin-bottom: 12px;">
+                        <h4 style="margin: 0 0 2px 0; color: #1e3a8a; font-size: 13.5px;">Teaching Assistant</h4>
+                        <div style="font-size: 11px; font-weight: bold; color: #0284c7;">Softwarica College of IT & E-Commerce (Coventry University)</div>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Kathmandu, Nepal · Academic Mentorship & Lab Facilitation</div>
+                        <p style="font-size: 11.5px; color: #334155; line-height: 1.5; margin: 0;">
+                            Supporting undergraduate computing students in programming fundamentals, algorithm design, software debugging, and clean architecture. Facilitating hands-on computer lab sessions and mentoring student projects in full-stack web and data systems.
+                        </p>
+                    </div>
+
+                    <!-- Role 3: National Athlete -->
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 4px; padding: 12px;">
+                        <h4 style="margin: 0 0 2px 0; color: #0055ea; font-size: 12.5px;">National & International Athlete</h4>
+                        <div style="font-size: 11px; font-weight: bold; color: #475569;">Nepal Soft Tennis Association / National Sports Council</div>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">2016 – Present · Nepal & International</div>
+                        <p style="font-size: 11.5px; color: #334155; line-height: 1.5; margin: 0;">
+                            Competitive soft tennis player representing Nepal internationally in South Korea and at two National Games (7th & 8th). Translated sports analytics directly into computer vision research.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pane 5: skills.exe -->
+                <div id="whoami-pane-skills" class="whoami-content-pane hidden" style="padding: 15px;">
+                    <h3 style="margin-top: 0; color: #0055ea;">skills.exe — Technical Stack</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 11.5px;">
+                        <div>
+                            <strong>💻 Full-Stack Web Development</strong>
+                            <ul style="margin: 6px 0 12px 15px; padding: 0; line-height: 1.5;">
+                                <li>JavaScript (ES6+) & TypeScript</li>
+                                <li>React.js, Next.js & Vite</li>
+                                <li>Node.js, Express, REST APIs, Socket.io</li>
+                                <li>MongoDB, PostgreSQL, SQL, Docker, NGINX</li>
+                            </ul>
+
+                            <strong>🎨 UI/UX Design</strong>
+                            <ul style="margin: 6px 0 12px 15px; padding: 0; line-height: 1.5;">
+                                <li>Figma (Design Systems, Prototyping)</li>
+                                <li>TailwindCSS & Framer Motion</li>
+                                <li>Canva & Adobe Creative Tools</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <strong>🤖 Data Science & Machine Learning</strong>
+                            <ul style="margin: 6px 0 12px 15px; padding: 0; line-height: 1.5;">
+                                <li>Python (NumPy, pandas, Matplotlib, Seaborn)</li>
+                                <li>Ultralytics YOLOv8 & OpenCV</li>
+                                <li>Pose Estimation & Sports Kinematics</li>
+                                <li>SQL Querying & Gradient Descent Modeling</li>
+                            </ul>
+
+                            <strong>⚡ Systems & Hardware</strong>
+                            <ul style="margin: 6px 0 12px 15px; padding: 0; line-height: 1.5;">
+                                <li>Raspberry Pi 4 & PWM Signal Interfacing</li>
+                                <li>Logitech G29 Hardware Integration</li>
+                                <li>Linux, Git, GitHub Actions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pane 6: education.txt -->
+                <div id="whoami-pane-education" class="whoami-content-pane hidden" style="padding: 15px;">
+                    <h3 style="margin-top: 0; color: #0055ea;">C:\SHUBHAM\education.txt</h3>
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 4px; line-height: 1.6;">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <strong style="color: #0055ea; font-size: 13px;">BSc (Hons) in Computing / Computer Science</strong>
+                            <span style="font-weight: bold; color: #16a34a; font-size: 11px;">2023 – 2026</span>
+                        </div>
+                        <div><strong>Coventry University</strong> (in academic partnership with Softwarica College)</div>
+                        <span style="color: #64748b; font-size: 11px;">Kathmandu, Nepal</span>
+                        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 8px 0;">
+                        <strong>Core Focus & Achievements:</strong>
+                        <ul style="margin: 4px 0 0 15px; padding: 0; font-size: 11.5px; line-height: 1.5;">
+                            <li>Specialization in Full-Stack Systems, Computer Vision, and Data Science.</li>
+                            <li>Appointed <strong>Teaching Assistant</strong> at Softwarica College.</li>
+                            <li>Showcased Remote RC Driving Simulator at SOFTWARICA TECH X ELEVATE.</li>
+                            <li>Lead architect for student projects across React, Node.js, and Python.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pane 7: currently.exe -->
+                <div id="whoami-pane-currently" class="whoami-content-pane hidden" style="padding: 15px;">
+                    <h3 style="margin-top: 0; color: #0055ea;">currently.exe — Live Status</h3>
+                    <div class="currently-widget">
+                        <div>&gt; Initializing status monitor...</div>
+                        <div style="margin-top: 8px; font-weight: bold; color: #38bdf8;">Currently...</div>
+                        <div>&gt; Mentoring computing students at Softwarica College</div>
+                        <div>&gt; Building Hope Care & Medical Exchange platforms</div>
+                        <div>&gt; Advancing AI Computer Vision for single-camera tennis kinematics</div>
+                        <div>&gt; Completing Dataquest Data Science & SQL certifications</div>
+                        <div>&gt; Playing competitive soft tennis on weekend clay courts</div>
+                        <div>&gt; Trekking Himalayan trails across Nepal</div>
+                        <br>
+                        <div style="color: #4ade80; font-weight: bold;">Status: ONLINE & READY TO COLLABORATE</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xp-statusbar">
+                <span>WhoAmI.sys loaded</span>
+                <span>Author: Shubham Khanal</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 2: My Computer (C:\SHUBHAM) -->
+        <div class="window hidden" id="window-thispc"
+            style="top: 70px; left: 130px; width: 780px; height: 530px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/computer_16.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">My Computer</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-thispc')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-thispc')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-thispc')">X</div>
+                </div>
+            </div>
+
+            <!-- Menubar -->
+            <div class="xp-menubar">
+                <span class="xp-menu-item"><u>F</u>ile</span>
+                <span class="xp-menu-item"><u>E</u>dit</span>
+                <span class="xp-menu-item"><u>V</u>iew</span>
+                <span class="xp-menu-item"><u>F</u>avorites</span>
+                <span class="xp-menu-item"><u>T</u>ools</span>
+                <span class="xp-menu-item"><u>H</u>elp</span>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="xp-toolbar">
+                <button class="xp-tb-btn" onclick="openWindow('window-profile')"><img src="src/icons/back.png" alt="">Back</button>
+                <button class="xp-tb-btn"><img src="src/icons/forward.png" alt=""></button>
+                <button class="xp-tb-btn" onclick="openWindow('window-thispc')"><img src="src/icons/up.png" alt=""></button>
+                <div class="xp-tb-sep"></div>
+                <button class="xp-tb-btn"><img src="src/icons/xp_24.png" alt="">Search</button>
+                <button class="xp-tb-btn"><img src="src/icons/xp_4.png" alt="">Folders</button>
+            </div>
+
+            <!-- Address Bar -->
+            <div class="xp-address-bar">
+                <span class="xp-address-label">Address</span>
+                <div class="xp-address-box">
+                    <img src="src/icons/computer_16.png" alt="">
+                    <input type="text" class="xp-address-input" value="C:\SHUBHAM" readonly>
+                </div>
+                <button class="xp-go-btn" onclick="openWindow('window-thispc')">Go</button>
+            </div>
+
+            <!-- Explorer Body -->
+            <div class="window-content" style="padding: 0;">
+                <div class="project-explorer-layout">
+                    <!-- Sidebar Task Pane -->
+                    <div class="explorer-sidebar">
+                        <div class="sidebar-box">
+                            <div class="sidebar-box-header">System Tasks ▾</div>
+                            <div class="sidebar-box-content">
+                                <div class="xp-task-link" onclick="showSystemProperties()"><img src="src/icons/xp_221.png" alt=""> View system info</div>
+                                <div class="xp-task-link" onclick="openWindow('window-display')"><img src="src/icons/xp_25.png" alt=""> Change settings</div>
+                                <div class="xp-task-link" onclick="openEasterEggPurrr()"><img src="src/icons/xp_23.png" alt=""> Check system cat</div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-box">
+                            <div class="sidebar-box-header">Other Places ▾</div>
+                            <div class="sidebar-box-content">
+                                <div class="xp-task-link" onclick="openWindow('window-profile')"><img src="src/icons/xp_235.png" alt=""> My Documents</div>
+                                <div class="xp-task-link" onclick="openWindow('window-projects')"><img src="src/icons/folder.png" alt=""> My Projects</div>
+                                <div class="xp-task-link" onclick="openWindow('window-display')"><img src="src/icons/xp_25.png" alt=""> Control Panel</div>
+                                <div class="xp-task-link" onclick="openRecycleBin()"><img src="src/icons/xp_33.png" alt=""> Recycle Bin</div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-box">
+                            <div class="sidebar-box-header">Details ▾</div>
+                            <div class="sidebar-box-content" id="thispc-details-pane">
+                                <strong>SHUBHAM-PC</strong><br>
+                                System Folder<br>
+                                CPU: Intel Core i7 / AI Engine<br>
+                                RAM: 16.0 GB<br>
+                                Partner: Softwarica / Coventry
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Viewport: C:\SHUBHAM Explorer Filesystem -->
+                    <div class="explorer-main">
+                        <!-- Group 1: Files Stored on This Computer -->
+                        <div style="font-weight: bold; color: #0055ea; font-size: 11px; margin-bottom: 6px; padding-bottom: 2px; border-bottom: 1px solid #7f9db9;">
+                            Files Stored on This Computer
+                        </div>
+                        <div class="xp-listview-tiles" style="margin-bottom: 14px;">
+                            <div class="xp-list-item" onclick="openWindow('window-profile')">
+                                <img src="src/icons/xp_235.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Shubham's Documents</div>
+                                    <div class="xp-item-sub">File Folder</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-downloads')">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Shared Documents</div>
+                                    <div class="xp-item-sub">File Folder</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group 2: Hard Disk Drives (C:\SHUBHAM) -->
+                        <div style="font-weight: bold; color: #0055ea; font-size: 11px; margin-bottom: 6px; padding-bottom: 2px; border-bottom: 1px solid #7f9db9;">
+                            Hard Disk Drives — C:\SHUBHAM Filesystem
+                        </div>
+                        <div class="xp-listview-tiles" style="margin-bottom: 14px;">
+                            <div class="xp-list-item" onclick="openWindow('window-profile'); switchWhoAmITab('about');">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">About Me</div>
+                                    <div class="xp-item-sub">C:\SHUBHAM\About Me</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-profile'); switchWhoAmITab('education');">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Education</div>
+                                    <div class="xp-item-sub">Coventry & Softwarica</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-profile'); switchWhoAmITab('career');">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Experience</div>
+                                    <div class="xp-item-sub">Teaching Assistant & Dev</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-projects')">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Projects</div>
+                                    <div class="xp-item-sub">6 Production Systems</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-profile'); switchWhoAmITab('skills');">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Skills</div>
+                                    <div class="xp-item-sub">Web, AI, CV & Hardware</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-certificates')">
+                                <img src="src/icons/xp_152.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Certifications</div>
+                                    <div class="xp-item-sub">Dataquest Data Science</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-achievements')">
+                                <img src="src/icons/xp_44.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Achievements</div>
+                                    <div class="xp-item-sub">National Games Medals</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-personal'); showPersonalSection('sec-tennis');">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Sports</div>
+                                    <div class="xp-item-sub">World Championship & Tennis</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-personal')">
+                                <img src="src/icons/folder.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Personal</div>
+                                    <div class="xp-item-sub">Treks, Tennis & Writings</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-downloads')">
+                                <img src="src/icons/xp_152.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">CV</div>
+                                    <div class="xp-item-sub">Resume & Publications</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="openWindow('window-contact')">
+                                <img src="src/icons/mail.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Contact</div>
+                                    <div class="xp-item-sub">Direct Mail & Outlook</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group 3: Devices with Removable Storage -->
+                        <div style="font-weight: bold; color: #0055ea; font-size: 11px; margin-bottom: 6px; padding-bottom: 2px; border-bottom: 1px solid #7f9db9;">
+                            Devices with Removable Storage
+                        </div>
+                        <div class="xp-listview-tiles">
+                            <div class="xp-list-item" onclick="showSystemMessage({title:'3½ Floppy (A:)', icon:'src/icons/xp_7.png', message:'Please insert a floppy disk into drive A:.<br><br><small style=\'color:#555;\'>[Floppy Drive Simulator]</small>'})">
+                                <img src="src/icons/xp_7.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">3½ Floppy (A:)</div>
+                                    <div class="xp-item-sub">3½-Inch Floppy Disk</div>
+                                </div>
+                            </div>
+                            <div class="xp-list-item" onclick="showSystemMessage({title:'CD Drive (D:)', icon:'src/icons/xp_12.png', message:'<strong>Softwarica College & Coventry University BSc Computing (2023–2026)</strong><br><br>Coursework disc verified. 100% authentic academic credentials.'})">
+                                <img src="src/icons/xp_12.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">CD Drive (D:)</div>
+                                    <div class="xp-item-sub">Coventry & Softwarica CD</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="xp-statusbar">
+                <span>13 objects</span>
+                <span>My Computer</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 3: My Projects (Windows Explorer) -->
+        <div class="window hidden" id="window-projects"
+            style="top: 50px; left: 100px; width: 860px; height: 580px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/folder.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">C:\SHUBHAM\Projects</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-projects')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-projects')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-projects')">X</div>
+                </div>
+            </div>
+
+            <!-- Menubar -->
+            <div class="xp-menubar">
+                <span><u>F</u>ile</span>
+                <span><u>E</u>dit</span>
+                <span><u>V</u>iew</span>
+                <span><u>F</u>avorites</span>
+                <span><u>T</u>ools</span>
+                <span><u>H</u>elp</span>
+            </div>
+
+            <!-- Toolbar & Address Bar -->
+            <div class="xp-toolbar">
+                <button class="xp-tb-btn" onclick="openWindow('window-thispc')">
+                    <img src="src/icons/back.png" alt="">
+                    <span>Back</span>
+                </button>
+                <button class="xp-tb-btn" onclick="openWindow('window-personal')">
+                    <img src="src/icons/forward.png" alt="">
+                    <span>Forward</span>
+                </button>
+                <button class="xp-tb-btn" onclick="openWindow('window-thispc')">
+                    <img src="src/icons/up.png" alt="">
+                    <span>Up</span>
+                </button>
+                <div class="xp-tb-separator"></div>
+                <button class="xp-tb-btn" onclick="triggerDesktopRefresh()">
+                    <img src="src/icons/search.png" alt="">
+                    <span>Search</span>
+                </button>
+                <button class="xp-tb-btn" onclick="openWindow('window-thispc')">
+                    <img src="src/icons/xp_5.png" alt="">
+                    <span>Folders</span>
+                </button>
+            </div>
+
+            <div class="xp-address-bar">
+                <span class="xp-address-label">Address</span>
+                <div class="xp-address-box">
+                    <img src="src/icons/folder.png" alt="">
+                    <span>C:\SHUBHAM\Projects</span>
+                </div>
+                <button class="xp-go-btn" onclick="triggerDesktopRefresh()">
+                    <img src="src/icons/xp_14.png" alt="" style="width: 14px; height: 14px;">
+                    <span>Go</span>
+                </button>
+            </div>
+
+            <div class="window-content" style="padding: 0;">
+                <div class="xp-explorer-body">
+                    <!-- Left Blue Task Pane -->
+                    <div class="xp-task-pane">
+                        <!-- Project Tasks -->
+                        <div class="xp-task-box">
+                            <div class="xp-task-header">
+                                <span>Project Tasks</span>
+                                <span>▾</span>
+                            </div>
+                            <div class="xp-task-content">
+                                <div class="xp-task-link" onclick="openSelectedProjectAction('demo')">
+                                    <img src="src/icons/ie.png" alt="">
+                                    <span>Launch project demo</span>
+                                </div>
+                                <div class="xp-task-link" onclick="openSelectedProjectAction('report')">
+                                    <img src="src/icons/xp_152.png" alt="">
+                                    <span>Read technical report</span>
+                                </div>
+                                <div class="xp-task-link" onclick="openSelectedProjectAction('gallery')">
+                                    <img src="src/icons/camera_vid.png" alt="">
+                                    <span>View screenshots</span>
+                                </div>
+                                <div class="xp-task-link" onclick="openSelectedProjectAction('arch')">
+                                    <img src="src/icons/xp_25.png" alt="">
+                                    <span>System architecture</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Other Places -->
+                        <div class="xp-task-box">
+                            <div class="xp-task-header">
+                                <span>Other Places</span>
+                                <span>▾</span>
+                            </div>
+                            <div class="xp-task-content">
+                                <div class="xp-task-link" onclick="openWindow('window-thispc')">
+                                    <img src="src/icons/computer_16.png" alt="">
+                                    <span>My Computer</span>
+                                </div>
+                                <div class="xp-task-link" onclick="openWindow('window-profile')">
+                                    <img src="src/icons/xp_235.png" alt="">
+                                    <span>My Documents</span>
+                                </div>
+                                <div class="xp-task-link" onclick="openRecycleBin()">
+                                    <img src="src/icons/xp_33.png" alt="">
+                                    <span>Recycle Bin</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Details Pane -->
+                        <div class="xp-task-box">
+                            <div class="xp-task-header">
+                                <span>Details</span>
+                                <span>▾</span>
+                            </div>
+                            <div class="xp-task-content" id="project-details-pane">
+                                <div style="font-weight: bold; margin-bottom: 2px;">Projects</div>
+                                <div style="color: #444; margin-bottom: 6px;">File Folder</div>
+                                <div>Author: Shubham Khanal</div>
+                                <div>Date Modified: Today</div>
+                                <div style="margin-top: 6px; color: #555;">Click any project item to inspect details.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Viewport: Tiles View -->
+                    <div class="xp-explorer-viewport">
+                        <div class="xp-listview-tiles">
+                            <!-- Project 1: AI Tennis Vision -->
+                            <div class="xp-list-item selected" onclick="selectProject('tennis')" ondblclick="openSelectedProjectAction('gallery')">
+                                <img src="src/icons/camera_vid.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">AI Tennis Vision</div>
+                                    <div class="xp-item-sub">Computer Vision Pipeline</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">YOLOv8, OpenCV, Python</div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2: Hope Care -->
+                            <div class="xp-list-item" onclick="selectProject('hopecare')" ondblclick="openSelectedProjectAction('arch')">
+                                <img src="src/icons/xp_4.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Hope Care</div>
+                                    <div class="xp-item-sub">Healthcare Assistance</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">React, Node, Express, Khalti</div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3: Medical Exchange Nepal -->
+                            <div class="xp-list-item" onclick="selectProject('medexchange')" ondblclick="openSelectedProjectAction('arch')">
+                                <img src="src/icons/ie.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Medical Exchange Nepal</div>
+                                    <div class="xp-item-sub">Clinical Elective Portal</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">React, TypeScript, Vite</div>
+                                </div>
+                            </div>
+
+                            <!-- Project 4: RC Car Simulator -->
+                            <div class="xp-list-item" onclick="selectProject('rccar')" ondblclick="openSelectedProjectAction('report')">
+                                <img src="src/icons/joystick.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">RC Car Simulator</div>
+                                    <div class="xp-item-sub">Autonomous Robotics</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">Raspberry Pi 4, Logitech G29</div>
+                                </div>
+                            </div>
+
+                            <!-- Project 5: Aashirbad Care -->
+                            <div class="xp-list-item" onclick="selectProject('aashirbad')" ondblclick="openSelectedProjectAction('arch')">
+                                <img src="src/icons/xp_4.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Aashirbad Care</div>
+                                    <div class="xp-item-sub">Code for Impact Winner</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">Elderly Healthcare Platform</div>
+                                </div>
+                            </div>
+
+                            <!-- Project 6: ReFoodify -->
+                            <div class="xp-list-item" onclick="selectProject('refoodify')" ondblclick="openSelectedProjectAction('gallery')">
+                                <img src="src/icons/paint.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">ReFoodify</div>
+                                    <div class="xp-item-sub">Food Redistribution UX</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">Figma, Mobile Architecture</div>
+                                </div>
+                            </div>
+
+                            <!-- Project 7: Khana Baanam -->
+                            <div class="xp-list-item" onclick="selectProject('khanabaanam')" ondblclick="openSelectedProjectAction('arch')">
+                                <img src="src/icons/xp_4.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Khana Baanam</div>
+                                    <div class="xp-item-sub">Native Android App</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">Kotlin, SQLite, Android SDK</div>
+                                </div>
+                            </div>
+
+                            <!-- Project 8: Auction System 2.0 -->
+                            <div class="xp-list-item" onclick="selectProject('auction')" ondblclick="openSelectedProjectAction('arch')">
+                                <img src="src/icons/xp_4.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">Auction System 2.0</div>
+                                    <div class="xp-item-sub">Desktop Bidding Software</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">Java Swing, Multi-threaded Sockets</div>
+                                </div>
+                            </div>
+
+                            <!-- Document 1: tennis_doc.pdf -->
+                            <div class="xp-list-item" onclick="selectProject('doc_tennis')" ondblclick="openPdf('docs/tennis_doc.pdf')">
+                                <img src="src/icons/xp_152.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">tennis_doc.pdf</div>
+                                    <div class="xp-item-sub">Technical Report</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">2,450 KB · PDF Document</div>
+                                </div>
+                            </div>
+
+                            <!-- Document 2: rc_car_doc.pdf -->
+                            <div class="xp-list-item" onclick="selectProject('doc_rccar')" ondblclick="openPdf('docs/rc_car_doc.pdf')">
+                                <img src="src/icons/xp_152.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">rc_car_doc.pdf</div>
+                                    <div class="xp-item-sub">Hardware Schematics</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">457 KB · PDF Document</div>
+                                </div>
+                            </div>
+
+                            <!-- Document 3: refoodify_doc.pdf -->
+                            <div class="xp-list-item" onclick="selectProject('doc_refoodify')" ondblclick="openPdf('docs/refoodify_doc.pdf')">
+                                <img src="src/icons/xp_152.png" class="xp-item-icon" alt="">
+                                <div class="xp-item-info">
+                                    <div class="xp-item-title">refoodify_doc.pdf</div>
+                                    <div class="xp-item-sub">Design Architecture Spec</div>
+                                    <div class="xp-item-meta" style="font-size: 9.5px; color: #666;">2,140 KB · PDF Document</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xp-statusbar">
+                <div class="xp-sb-panel" style="flex: 2;">11 objects (8 folders, 3 technical documents)</div>
+                <div class="xp-sb-panel" style="flex: 1;">14.2 MB</div>
+                <div class="xp-sb-panel" style="flex: 1;">My Computer</div>
+            </div>
+        </div>
+
+        <!-- WINDOW 4: Personal Space (Interests & Real Folders) -->
+        <div class="window hidden" id="window-personal"
+            style="top: 70px; left: 140px; width: 850px; height: 580px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/folder.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">C:\SHUBHAM\Personal</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-personal')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-personal')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-personal')">X</div>
+                </div>
+            </div>
+
+            <div class="window-content" style="padding: 0;">
+                <div class="personal-layout">
+                    <!-- Folders Sidebar -->
+                    <div class="personal-sidebar">
+                        <div style="font-size: 11px; font-weight: bold; margin-bottom: 6px; color: #0c327d; border-bottom: 1px solid #dcdcdc; padding-bottom: 3px;">Personal Folders</div>
+                        <div class="folder-tree-item active" onclick="showPersonalSection('sec-tennis')">
+                            <img src="src/icons/camera_vid.png" width="16" height="16" alt="">
+                            <span>Tennis Gallery</span>
+                        </div>
+                        <div class="folder-tree-item" onclick="showPersonalSection('sec-hiking')">
+                            <img src="src/icons/camera_vid.png" width="16" height="16" alt="">
+                            <span>Hiking Adventures</span>
+                        </div>
+                        <div class="folder-tree-item" onclick="showPersonalSection('sec-sports')">
+                            <img src="src/icons/camera_vid.png" width="16" height="16" alt="">
+                            <span>Sports & Fitness</span>
+                        </div>
+                        <div class="folder-tree-item" onclick="showPersonalSection('sec-movies')">
+                            <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                            <span>Movie Picks</span>
+                        </div>
+                        <div class="folder-tree-item" onclick="showPersonalSection('sec-books')">
+                            <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                            <span>Books</span>
+                        </div>
+                        <div class="folder-tree-item" onclick="showPersonalSection('sec-astro')">
+                            <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                            <span>Astrology & Palm</span>
+                        </div>
+                        <div class="folder-tree-item" onclick="showPersonalSection('sec-blog')">
+                            <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                            <span>Poems & Stories</span>
+                        </div>
+                    </div>
+
+                    <!-- Personal Content Area -->
+                    <div class="personal-content">
+                        <!-- Tennis Section -->
+                        <div id="sec-tennis" class="personal-section">
+                            <h3 style="margin-top: 0; color: #0055ea;">Tennis Gallery</h3>
+                            <p style="color: #666; font-size: 11.5px; margin-bottom: 10px;">Moments on the court. Click any image to view in Windows Picture and Fax Viewer:</p>
+                            <div class="gallery-grid">
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/20.png', 'Tennis Match — Serve & Volley')"><img src="src/tennis/20.png" alt="Tennis Match"><div class="gallery-caption">Serve & Volley</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/21.png', 'Tennis Match — Baseline Drive')"><img src="src/tennis/21.png" alt="Tennis Match"><div class="gallery-caption">Baseline Drive</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/22.png', 'Tennis Match — Court Focus')"><img src="src/tennis/22.png" alt="Tennis Match"><div class="gallery-caption">Court Focus</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/24.png', 'Tennis Match — Rally Point')"><img src="src/tennis/24.png" alt="Tennis Match"><div class="gallery-caption">Rally Point</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/09876.png', 'Tennis — Practice Session')"><img src="src/tennis/09876.png" alt="Tennis"><div class="gallery-caption">Practice Session</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/76543.png', 'Tennis — Match Point')"><img src="src/tennis/76543.png" alt="Tennis"><div class="gallery-caption">Match Point</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/2222.png', 'Tennis — Sunset Court')"><img src="src/tennis/2222.png" alt="Tennis"><div class="gallery-caption">Sunset Court</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/345678.png', 'Tennis — Slice & Spin')"><img src="src/tennis/345678.png" alt="Tennis"><div class="gallery-caption">Slice & Spin</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/tennis/456789.png', 'Tennis — Forehand Winner')"><img src="src/tennis/456789.png" alt="Tennis"><div class="gallery-caption">Forehand Winner</div></div>
+                            </div>
+                        </div>
+
+                        <!-- Hiking Section -->
+                        <div id="sec-hiking" class="personal-section hidden">
+                            <h3 style="margin-top: 0; color: #0055ea;">Hiking Adventures</h3>
+                            <p style="color: #666; font-size: 11.5px; margin-bottom: 10px;">Exploring trails and peaks across Nepal:</p>
+                            <div class="gallery-grid">
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/8.png', 'Himalayan Pass — Nepal')"><img src="src/hiking/8.png" alt="Hike"><div class="gallery-caption">Mountain Pass</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/9.png', 'Trail Dawn')"><img src="src/hiking/9.png" alt="Hike"><div class="gallery-caption">Trail Dawn</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/10.png', 'Alpine Horizon')"><img src="src/hiking/10.png" alt="Hike"><div class="gallery-caption">Alpine Horizon</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/11.png', 'Valley Ridge')"><img src="src/hiking/11.png" alt="Hike"><div class="gallery-caption">Valley Ridge</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/12.png', 'Pine Wilderness')"><img src="src/hiking/12.png" alt="Hike"><div class="gallery-caption">Pine Wilderness</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/13.png', 'High Peak')"><img src="src/hiking/13.png" alt="Hike"><div class="gallery-caption">High Peak</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/14.png', 'Cloud Summit')"><img src="src/hiking/14.png" alt="Hike"><div class="gallery-caption">Cloud Summit</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/15.png', 'Himalayan Air')"><img src="src/hiking/15.png" alt="Hike"><div class="gallery-caption">Himalayan Air</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/16.png', 'Stone Pathway')"><img src="src/hiking/16.png" alt="Hike"><div class="gallery-caption">Stone Pathway</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/17.png', 'Endless Valley')"><img src="src/hiking/17.png" alt="Hike"><div class="gallery-caption">Endless Valley</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/18.png', 'Suspension Bridge')"><img src="src/hiking/18.png" alt="Hike"><div class="gallery-caption">Suspension Bridge</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/hiking/19.png', 'Camp Sunset')"><img src="src/hiking/19.png" alt="Hike"><div class="gallery-caption">Camp Sunset</div></div>
+                            </div>
+                        </div>
+
+                        <!-- Sports Section -->
+                        <div id="sec-sports" class="personal-section hidden">
+                            <h3 style="margin-top: 0; color: #0055ea;">Sports & Fitness Life</h3>
+                            <p style="color: #666; font-size: 11.5px; margin-bottom: 10px;">Energy, discipline, and daily movement:</p>
+                            <div class="gallery-grid">
+                                <div class="gallery-item" onclick="openPictureViewer('src/fitness/1.png', 'Gym Discipline')"><img src="src/fitness/1.png" alt="Fitness"><div class="gallery-caption">Gym Discipline</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/fitness/2.png', 'Speed & Power')"><img src="src/fitness/2.png" alt="Fitness"><div class="gallery-caption">Speed & Power</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/fitness/3.png', 'Morning Conditioning')"><img src="src/fitness/3.png" alt="Fitness"><div class="gallery-caption">Morning Conditioning</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/fitness/4.png', 'Outdoor Drill')"><img src="src/fitness/4.png" alt="Fitness"><div class="gallery-caption">Outdoor Drill</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/fitness/5.png', 'Strength Training')"><img src="src/fitness/5.png" alt="Fitness"><div class="gallery-caption">Strength Training</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/fitness/6.png', 'Cardio Run')"><img src="src/fitness/6.png" alt="Fitness"><div class="gallery-caption">Cardio Run</div></div>
+                                <div class="gallery-item" onclick="openPictureViewer('src/fitness/7.png', 'Post-Workout Recovery')"><img src="src/fitness/7.png" alt="Fitness"><div class="gallery-caption">Post-Workout Recovery</div></div>
+                            </div>
+                        </div>
+
+                        <!-- Movies Section -->
+                        <div id="sec-movies" class="personal-section hidden">
+                            <h3 style="margin-top: 0; color: #0055ea;">Movie Recommendations</h3>
+                            <div style="background: #000; color: #22c55e; padding: 15px; font-family: 'Consolas', monospace; border-radius: 4px; border: 1px solid #16a34a;">
+                                <div style="color: #38bdf8; margin-bottom: 8px;">// watchlist.txt - Shubham's Top Films</div>
+                                <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                                    <li>&gt; <strong>Interstellar</strong> (2014) — "Love is the one thing that transcends dimensions."</li>
+                                    <li>&gt; <strong>The Pursuit of Happyness</strong> (2006) — "You got a dream, you gotta protect it."</li>
+                                    <li>&gt; <strong>3 Idiots</strong> (2009) — "Pursue excellence, and success will follow."</li>
+                                    <li>&gt; <strong>Inception</strong> (2010) — "An idea is like a virus."</li>
+                                    <li>&gt; <strong>The Shawshank Redemption</strong> (1994) — "Hope is a good thing, maybe the best of things."</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Books Section -->
+                        <div id="sec-books" class="personal-section hidden">
+                            <h3 style="margin-top: 0; color: #0055ea;">Book Recommendations</h3>
+                            <div style="display: flex; gap: 15px; background: #6b3e26; padding: 20px; border-radius: 4px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); flex-wrap: wrap;">
+                                <div style="width: 85px; height: 120px; background: linear-gradient(135deg, #fef3c7 0%, #d97706 100%); color: #451a03; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; text-align: center; border: 2px solid #b45309; border-radius: 2px; padding: 5px; font-weight: bold; box-shadow: 2px 3px 5px rgba(0,0,0,0.4);">
+                                    <span>The Alchemist</span>
+                                    <span style="font-size: 9px; font-weight: normal; margin-top: 6px;">Paulo Coelho</span>
+                                </div>
+                                <div style="width: 85px; height: 120px; background: linear-gradient(135deg, #e0f2fe 0%, #0284c7 100%); color: #082f49; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; text-align: center; border: 2px solid #0369a1; border-radius: 2px; padding: 5px; font-weight: bold; box-shadow: 2px 3px 5px rgba(0,0,0,0.4);">
+                                    <span>Atomic Habits</span>
+                                    <span style="font-size: 9px; font-weight: normal; margin-top: 6px;">James Clear</span>
+                                </div>
+                                <div style="width: 85px; height: 120px; background: linear-gradient(135deg, #fce7f3 0%, #be185d 100%); color: #500724; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; text-align: center; border: 2px solid #9d174d; border-radius: 2px; padding: 5px; font-weight: bold; box-shadow: 2px 3px 5px rgba(0,0,0,0.4);">
+                                    <span>Rich Dad Poor Dad</span>
+                                    <span style="font-size: 9px; font-weight: normal; margin-top: 6px;">Robert Kiyosaki</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Astrology Section -->
+                        <div id="sec-astro" class="personal-section hidden">
+                            <h3 style="margin-top: 0; color: #0055ea;">Astrology & Palm Reading</h3>
+                            <div style="background: #111827; color: #f43f5e; padding: 25px; border-radius: 4px; text-align: center; border: 1px solid #374151;">
+                                <p style="font-size: 14px; font-style: italic; color: #e0e7ff; margin-bottom: 15px;">"The universe is written in symbols — both in the stars and in the palms of our hands."</p>
+                                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="xp-btn" onclick="showSystemMessage({title:'Palmistry Guide', icon:'src/icons/msg_info.png', message:'The Life, Head, and Heart lines trace the interplay of vitality, mental focus, and empathy.'})">Palm Reading Basics</button>
+                                    <button class="xp-btn" onclick="showSystemMessage({title:'Birth Chart', icon:'src/icons/msg_info.png', message:'Planetary alignments reflect tendencies, strengths, and moments of inner transformation.'})">Birth Chart Concepts</button>
+                                    <button class="xp-btn" onclick="openWindow('window-contact')">Ask Shubham</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog / Poems Section -->
+                        <div id="sec-blog" class="personal-section hidden">
+                            <h3 style="margin-top: 0; color: #0055ea;">Poems & Stories</h3>
+                            <div style="background: #fffdfa; border: 1px solid #d1d5db; padding: 20px; font-family: 'Courier New', Courier, monospace; color: #1f2937; line-height: 1.8; box-shadow: 1px 1px 4px rgba(0,0,0,0.1); border-radius: 2px;">
+                                <strong style="font-size: 14px;">Lines in the Quiet</strong><br><br>
+                                The code runs deep,<br>
+                                While the world's asleep.<br>
+                                Pixels dance in phosphor light,<br>
+                                Creating wonder out of night.<br>
+                                We build with zeroes and with ones,<br>
+                                Under the gaze of distant suns.<br><br>
+                                <em>— Shubham</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>7 personal archives</span>
+                <span>Personal Space</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 5: Recycle Bin (Authentic XP Explorer) -->
+        <div class="window hidden" id="window-recycle"
+            style="top: 90px; left: 200px; width: 680px; height: 460px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/xp_33.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Recycle Bin</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-recycle')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-recycle')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-recycle')">X</div>
+                </div>
+            </div>
+
+            <!-- Menubar -->
+            <div class="xp-menubar">
+                <span onclick="openConfirmDeleteDialog()"><u>F</u>ile</span>
+                <span><u>E</u>dit</span>
+                <span><u>V</u>iew</span>
+                <span><u>F</u>avorites</span>
+                <span><u>T</u>ools</span>
+                <span><u>H</u>elp</span>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="xp-toolbar">
+                <button class="xp-tb-btn" onclick="openConfirmDeleteDialog()">
+                    <img src="src/icons/xp_32.png" alt="">
+                    <span>Empty Recycle Bin</span>
+                </button>
+                <button class="xp-tb-btn" onclick="restoreRecycleBinItems()">
+                    <img src="src/icons/xp_4.png" alt="">
+                    <span>Restore all items</span>
+                </button>
+                <div class="xp-tb-separator"></div>
+                <button class="xp-tb-btn" onclick="openWindow('window-thispc')">
+                    <img src="src/icons/xp_5.png" alt="">
+                    <span>Folders</span>
+                </button>
+            </div>
+
+            <!-- Address Bar -->
+            <div class="xp-address-bar">
+                <span class="xp-address-label">Address</span>
+                <div class="xp-address-box">
+                    <img src="src/icons/xp_33.png" alt="">
+                    <span>Recycle Bin</span>
+                </div>
+            </div>
+
+            <div class="window-content" style="padding: 0; background: #fff;">
+                <table class="file-list-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 230px;">Name</th>
+                            <th style="width: 150px;">Original Location</th>
+                            <th style="width: 90px;">Date Deleted</th>
+                            <th style="width: 100px;">Type</th>
+                            <th style="width: 60px;">Size</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recycle-bin-tbody">
+                        <tr onclick="openRecycleFile('everything I didn\'t say.txt')">
+                            <td style="display: flex; align-items: center; gap: 6px;">
+                                <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                                <strong>everything I didn't say.txt</strong>
+                            </td>
+                            <td>C:\SHUBHAM\Personal</td>
+                            <td>Yesterday</td>
+                            <td>Text Document</td>
+                            <td>2 KB</td>
+                        </tr>
+                        <tr onclick="openRecycleFile('old_portfolio.txt')">
+                            <td style="display: flex; align-items: center; gap: 6px;">
+                                <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                                <strong>old_portfolio.txt</strong>
+                            </td>
+                            <td>C:\SHUBHAM\Projects</td>
+                            <td>3 days ago</td>
+                            <td>Text Document</td>
+                            <td>1 KB</td>
+                        </tr>
+                        <tr onclick="openRecycleFile('unfinished_ideas.txt')">
+                            <td style="display: flex; align-items: center; gap: 6px;">
+                                <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                                <strong>unfinished_ideas.txt</strong>
+                            </td>
+                            <td>C:\SHUBHAM\Drafts</td>
+                            <td>Last week</td>
+                            <td>Text Document</td>
+                            <td>4 KB</td>
+                        </tr>
+                        <tr onclick="openRecycleFile('README_old.txt')">
+                            <td style="display: flex; align-items: center; gap: 6px;">
+                                <img src="src/icons/xp_152.png" width="16" height="16" alt="">
+                                <strong>README_old.txt</strong>
+                            </td>
+                            <td>C:\SHUBHAM</td>
+                            <td>Recently</td>
+                            <td>Text Document</td>
+                            <td>1 KB</td>
+                        </tr>
+                        <tr onclick="showSystemMessage({title:'Recycle Bin Item', icon:'src/icons/msg_warning.png', message:'<strong>deleted_bugs_and_syntax_errors.tmp:</strong><br><br>400+ resolved bugs, race conditions, and runtime errors happily dumped.'})">
+                            <td style="display: flex; align-items: center; gap: 6px;">
+                                <img src="src/icons/xp_47.png" width="16" height="16" alt="">
+                                <span>deleted_bugs_and_syntax_errors.tmp</span>
+                            </td>
+                            <td>C:\Code\Temp</td>
+                            <td>Earlier today</td>
+                            <td>TMP File</td>
+                            <td>42.8 MB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="xp-statusbar">
+                <div class="xp-sb-panel" style="flex: 2;">5 objects</div>
+                <div class="xp-sb-panel" style="flex: 1;">42.8 MB</div>
+                <div class="xp-sb-panel" style="flex: 1;">Recycle Bin</div>
+            </div>
+        </div>
+
+        <!-- WINDOW 6: Downloads (CV, Reports & Documents) -->
+        <div class="window hidden" id="window-downloads"
+            style="top: 100px; left: 160px; width: 620px; height: 420px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/directory_net_web-4.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">C:\Documents and Settings\Shubham\Downloads</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-downloads')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-downloads')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-downloads')">X</div>
+                </div>
+            </div>
+
+            <div class="window-content" style="padding: 12px;">
+                <p style="margin: 0 0 10px 0; color: #555; font-size: 11.5px;">Official portfolio documentation and technical reports:</p>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 3px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <img src="https://win98icons.alexmeub.com/icons/png/chm-2.png" width="24" alt="">
+                            <div>
+                                <strong>Tennis_Vision_Research_Paper.pdf</strong><br>
+                                <span style="font-size: 10px; color: #64748b;">YOLOv8 tennis analytics pipeline documentation (2.4 MB)</span>
+                            </div>
+                        </div>
+                        <button class="xp-btn" onclick="openPdf('docs/tennis_doc.pdf')">Open PDF</button>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 3px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <img src="https://win98icons.alexmeub.com/icons/png/joystick-0.png" width="24" alt="">
+                            <div>
+                                <strong>RC_Car_Simulator_Report.pdf</strong><br>
+                                <span style="font-size: 10px; color: #64748b;">Raspberry Pi 4 + Logitech G29 hardware schematics (457 KB)</span>
+                            </div>
+                        </div>
+                        <button class="xp-btn" onclick="openPdf('docs/rc_car_doc.pdf')">Open PDF</button>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 3px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <img src="https://win98icons.alexmeub.com/icons/png/utopia_smiley-0.png" width="24" alt="">
+                            <div>
+                                <strong>ReFoodify_Concept_Paper.pdf</strong><br>
+                                <span style="font-size: 10px; color: #64748b;">Food waste reduction design architecture (2.1 MB)</span>
+                            </div>
+                        </div>
+                        <button class="xp-btn" onclick="openPdf('docs/refoodify_doc.pdf')">Open PDF</button>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>3 documents</span>
+                <span>All documents verified & signed</span>
+            </div>
+        </div>
+
+        <!-- WINDOW: Achievements & Sports Honors -->
+        <div class="window hidden" id="window-achievements"
+            style="top: 55px; left: 110px; width: 880px; height: 580px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/certificate_2-0.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Achievements & Honors - National & International Sports</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-achievements')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-achievements')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-achievements')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-toolbar">
+                <button class="xp-btn" onclick="openWindow('window-profile')">👤 Who Am I</button>
+                <button class="xp-btn" onclick="openWindow('window-certificates')">📜 Certificates</button>
+                <div style="width: 1px; height: 16px; background: #999; margin: 0 4px;"></div>
+                <span style="font-size: 11px; color: #475569;">Click any certificate image to view high-res full document</span>
+            </div>
+
+            <div class="window-content" style="padding: 15px; overflow-y: auto;">
+                <div style="background: linear-gradient(to right, #1e3a8a, #0284c7); color: #fff; padding: 12px 16px; border-radius: 4px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 15px;">🎾 National & International Sports Record — Soft Tennis</h3>
+                        <p style="margin: 0; font-size: 11.5px; opacity: 0.95;">Representing Nepal across world championship stages and national podiums.</p>
+                    </div>
+                    <div style="font-size: 26px;">🏆</div>
+                </div>
+
+                <div class="achievements-grid">
+                    <!-- Honor 1: 8th National Games Bronze -->
+                    <div class="achievement-card">
+                        <div class="achievement-header">
+                            <span class="achievement-badge">🥉 BRONZE MEDAL</span>
+                            <span style="font-size: 10px; font-weight: bold;">Apr 2019</span>
+                        </div>
+                        <div class="achievement-body">
+                            <div class="achievement-thumb-wrap" onclick="openLightbox('src/certificates/cert_bronze_8th_national.jpg')">
+                                <img src="src/certificates/cert_bronze_8th_national.jpg" alt="8th National Games Bronze Certificate">
+                                <div class="achievement-thumb-hover">🔍 View Patra</div>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">3rd Position (Bronze) — 8th National Games</div>
+                                <div class="achievement-issuer">Issued by: National Sports Council of Nepal · Lumbini</div>
+                                <div class="achievement-desc">
+                                    Awarded <strong>Praman Patra (Certificate of Achievement)</strong> for securing 3rd position (Tritiya/Bronze) in Men's Doubles Soft Tennis at the 8th National Games (Aathau Rastriya Khelkud Pratiyogita 2075/076). Represented Province No. 5, Dang District against premier players across Nepal.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-footer">
+                            <span>Event: Men's Doubles</span>
+                            <span>Associated with Coventry University</span>
+                        </div>
+                    </div>
+
+                    <!-- Honor 2: Under-15 World Championship Korea -->
+                    <div class="achievement-card">
+                        <div class="achievement-header">
+                            <span class="achievement-badge" style="background: #38bdf8; color: #0c4a6e;">🌍 WORLD CHAMPIONSHIP</span>
+                            <span style="font-size: 10px; font-weight: bold;">Nov 2018</span>
+                        </div>
+                        <div class="achievement-body">
+                            <div class="achievement-thumb-wrap" onclick="openLightbox('src/certificates/cert_istf_world_u15.jpg')">
+                                <img src="src/certificates/cert_istf_world_u15.jpg" alt="ISTF Diploma World Championships">
+                                <div class="achievement-thumb-hover">🔍 View Diploma</div>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">Under-15 Junior World Soft Tennis Championship</div>
+                                <div class="achievement-issuer">Issued by: International Soft Tennis Federation (ISTF) · Suncheon, Korea</div>
+                                <div class="achievement-desc">
+                                    Official <strong>ISTF Diploma</strong> awarded for representing Nepal on the international world stage at the 3rd World Soft Tennis Championships in Suncheon, South Korea (Nov 18–25, 2018). Competed against top junior national champions globally.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-footer">
+                            <span>National Representative of Nepal</span>
+                            <span>Associated with Coventry University</span>
+                        </div>
+                    </div>
+
+                    <!-- Honor 3: 1st Position NSTA National U-15 Singles -->
+                    <div class="achievement-card">
+                        <div class="achievement-header">
+                            <span class="achievement-badge" style="background: #facc15; color: #713f12;">🥇 1ST POSITION (GOLD)</span>
+                            <span style="font-size: 10px; font-weight: bold;">Oct 2018</span>
+                        </div>
+                        <div class="achievement-body">
+                            <div class="achievement-thumb-wrap" onclick="openLightbox('src/certificates/cert_nsta_1st_u15.jpg')">
+                                <img src="src/certificates/cert_nsta_1st_u15.jpg" alt="1st Position NSTA Tournament">
+                                <div class="achievement-thumb-hover">🔍 View Patra</div>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">1st Position (Champion) — NSTA Junior Tournament</div>
+                                <div class="achievement-issuer">Issued by: Nepal Soft Tennis Association (NSTA) · Kathmandu</div>
+                                <div class="achievement-desc">
+                                    Secured <strong>1st Position (Champion)</strong> in the Single Events U-15 Age Category at the NSTA Junior Age Group Soft Tennis Tournament in Kathmandu, organized in association with the International Soft Tennis Federation (ISTF) & Asian Soft Tennis Federation (ASTF).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-footer">
+                            <span>Single Events U-15 Champion</span>
+                            <span>Associated with Coventry University</span>
+                        </div>
+                    </div>
+
+                    <!-- Honor 4: National Selection 1st Asia Cup / Korea Cup 2017 -->
+                    <div class="achievement-card">
+                        <div class="achievement-header">
+                            <span class="achievement-badge" style="background: #e0e7ff; color: #3730a3;">🇰🇷 ASIA CUP SELECTION</span>
+                            <span style="font-size: 10px; font-weight: bold;">Jul 2017</span>
+                        </div>
+                        <div class="achievement-body">
+                            <div class="achievement-thumb-wrap" onclick="openLightbox('src/certificates/cert_asia_korea_cup_2017.jpg')">
+                                <img src="src/certificates/cert_asia_korea_cup_2017.jpg" alt="Asia Cup Korea Cup Selection Certificate">
+                                <div class="achievement-thumb-hover">🔍 View Patra</div>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">National Selection — 1st Asia Cup / Korea Cup 2017</div>
+                                <div class="achievement-issuer">Issued by: National Sports Council & NSTA · Anseong City, Korea</div>
+                                <div class="achievement-desc">
+                                    Certified by NSTA and ISTF for winning through the national selection match in Kathmandu representing Mid Western Region. Selected to represent Nepal at the 1st Asia Cup / Korea Cup 2017 Soft Tennis Championship held in Anseong City, Korea.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-footer">
+                            <span>National Player Selection</span>
+                            <span>Associated with Coventry University</span>
+                        </div>
+                    </div>
+
+                    <!-- Honor 5: 7th National Games Team Event Bronze -->
+                    <div class="achievement-card">
+                        <div class="achievement-header">
+                            <span class="achievement-badge">🥉 BRONZE MEDAL</span>
+                            <span style="font-size: 10px; font-weight: bold;">Dec 2016</span>
+                        </div>
+                        <div class="achievement-body">
+                            <div class="achievement-thumb-wrap" onclick="openLightbox(['src/certificates/cert_bronze_7th_team.jpg', 'src/certificates/cert_bronze_7th_banke.jpg'])">
+                                <img src="src/certificates/cert_bronze_7th_team.jpg" alt="7th National Games Bronze Certificate">
+                                <div class="achievement-thumb-hover">🔍 2 Patras</div>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">3rd Position (Bronze) — 7th National Games</div>
+                                <div class="achievement-issuer">Issued by: Nepal Olympic Committee & NSC Nepal · Purwanchal</div>
+                                <div class="achievement-desc">
+                                    Awarded <strong>Praman Patra & Samman Patra</strong> by National Sports Council Nepal and District Sports Development Committee, Banke for securing 3rd position in Men's Team Event Soft Tennis at the 7th National Games (Satau Rastriya Khelkud Pratiyogita 2073).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-footer">
+                            <span>Men's Team Event Bronze</span>
+                            <span>Associated with Coventry University</span>
+                        </div>
+                    </div>
+
+                    <!-- Honor 6: Geofest International 2017 -->
+                    <div class="achievement-card">
+                        <div class="achievement-header">
+                            <span class="achievement-badge" style="background: #dcfce7; color: #166534;">🌱 GEOFEST GLOBAL</span>
+                            <span style="font-size: 10px; font-weight: bold;">Nov 2017</span>
+                        </div>
+                        <div class="achievement-body">
+                            <div class="achievement-thumb-wrap" onclick="openLightbox('src/certificates/cert_geofest_2017.jpg')">
+                                <img src="src/certificates/cert_geofest_2017.jpg" alt="Geofest International Certificate">
+                                <div class="achievement-thumb-hover">🔍 View Cert</div>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">Participation — Geofest International 2017</div>
+                                <div class="achievement-issuer">Issued by: City Montessori School · Lucknow, India</div>
+                                <div class="achievement-desc">
+                                    Participated in Geofest International 2017, an international environmental awareness and youth science convention representing Prince English Model Boarding School, Nepal. Focused on sustainable biodiversity conservation under the theme "It's Our Earth — Let's Protect It."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-footer">
+                            <span>International Representation</span>
+                            <span>Associated with Coventry University</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>6 verified national & international honors</span>
+                <span>Praman Patra & ISTF Diplomas on file</span>
+            </div>
+        </div>
+
+        <!-- WINDOW: Professional Data Science & Computing Certificates -->
+        <div class="window hidden" id="window-certificates"
+            style="top: 75px; left: 150px; width: 800px; height: 540px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/certificate_seal-0.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">C:\SHUBHAM\CERTIFICATES</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-certificates')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-certificates')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-certificates')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-address-bar">
+                <span style="font-size: 11px;">Address:</span>
+                <input type="text" class="xp-address-input" value="C:\SHUBHAM\CERTIFICATES" readonly>
+                <button class="xp-btn" onclick="openWindow('window-certificates')">Go</button>
+            </div>
+
+            <div class="window-content" style="padding: 12px; overflow-y: auto;">
+                <p style="margin: 0 0 10px 0; color: #475569; font-size: 11.5px;">Verified professional certificates in Data Science, Machine Learning, and Database Architecture:</p>
+
+                <div class="certs-grid">
+                    <!-- Cert 1 -->
+                    <div class="cert-card">
+                        <div class="cert-badge">DATA SCIENCE CAREER PATH</div>
+                        <strong style="color: #0055ea; font-size: 12px; margin-bottom: 4px;">Data Scientist in Python Path</strong>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Issuer: Dataquest.io</div>
+                        <p style="font-size: 11px; color: #334155; line-height: 1.4; margin: 0 0 8px 0;">
+                            Comprehensive curriculum covering statistical modeling, clean data pipelines, algorithmic thinking, pandas, NumPy, and machine learning architectures.
+                        </p>
+                        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 10px; color: #16a34a; font-weight: bold;">✓ Verified Credential</span>
+                            <button class="xp-btn" onclick="showSystemMessage({title:'Data Scientist in Python', icon:'https://win98icons.alexmeub.com/icons/png/certificate_seal-0.png', message:'<strong>Data Scientist in Python Path (Dataquest):</strong><br><br>Mastered end-to-end data workflows, statistical significance testing, clean code development, pandas dataframe manipulation, and predictive machine learning models.'})">Inspect</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2 -->
+                    <div class="cert-card">
+                        <div class="cert-badge">VISUALIZATION & ANALYTICS</div>
+                        <strong style="color: #0055ea; font-size: 12px; margin-bottom: 4px;">Data Analysis & Visualization with Python Path</strong>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Issuer: Dataquest.io</div>
+                        <p style="font-size: 11px; color: #334155; line-height: 1.4; margin: 0 0 8px 0;">
+                            Exploratory data analysis, statistical distributions, multi-dimensional visualizations with Matplotlib and Seaborn, and automated reporting.
+                        </p>
+                        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 10px; color: #16a34a; font-weight: bold;">✓ Verified Credential</span>
+                            <button class="xp-btn" onclick="showSystemMessage({title:'Data Analysis & Visualization', icon:'https://win98icons.alexmeub.com/icons/png/chart1-0.png', message:'<strong>Data Analysis & Visualization with Python (Dataquest):</strong><br><br>Covers advanced data visualization principles, visual encoding of quantitative information, distribution analysis, and business storytelling.'})">Inspect</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3 -->
+                    <div class="cert-card">
+                        <div class="cert-badge">MACHINE LEARNING</div>
+                        <strong style="color: #0055ea; font-size: 12px; margin-bottom: 4px;">Gradient Descent Modeling in Python</strong>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Issuer: Dataquest.io</div>
+                        <p style="font-size: 11px; color: #334155; line-height: 1.4; margin: 0 0 8px 0;">
+                            Mathematical foundations of loss functions, stochastic vs batch gradient descent, hyperparameter tuning, and convergence optimization.
+                        </p>
+                        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 10px; color: #16a34a; font-weight: bold;">✓ Verified Credential</span>
+                            <button class="xp-btn" onclick="showSystemMessage({title:'Gradient Descent Modeling', icon:'https://win98icons.alexmeub.com/icons/png/certificate_seal-0.png', message:'<strong>Gradient Descent Modeling in Python (Dataquest):</strong><br><br>Implemented mathematical optimization algorithms from scratch: partial derivatives, learning rate scheduling, cost function surfaces, and multi-variable regression.'})">Inspect</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4 -->
+                    <div class="cert-card">
+                        <div class="cert-badge">DATABASE ARCHITECTURE</div>
+                        <strong style="color: #0055ea; font-size: 12px; margin-bottom: 4px;">Introduction to SQL and Databases</strong>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Issuer: Dataquest.io</div>
+                        <p style="font-size: 11px; color: #334155; line-height: 1.4; margin: 0 0 8px 0;">
+                            Relational schema design, normalization (1NF–3NF), primary/foreign key indexing, ACID transactions, and query optimization.
+                        </p>
+                        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 10px; color: #16a34a; font-weight: bold;">✓ Verified Credential</span>
+                            <button class="xp-btn" onclick="showSystemMessage({title:'Introduction to SQL', icon:'https://win98icons.alexmeub.com/icons/png/trust0-0.png', message:'<strong>Introduction to SQL and Databases (Dataquest):</strong><br><br>Relational schema design, primary keys, indexing strategies, table constraints, and relational database management concepts.'})">Inspect</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 5 -->
+                    <div class="cert-card">
+                        <div class="cert-badge">FULL-STACK DATA</div>
+                        <strong style="color: #0055ea; font-size: 12px; margin-bottom: 4px;">Querying Databases with SQL and Python</strong>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Issuer: Dataquest.io</div>
+                        <p style="font-size: 11px; color: #334155; line-height: 1.4; margin: 0 0 8px 0;">
+                            Integrating Python applications with SQL backends (SQLite, PostgreSQL), cursor management, parameterized queries, and analytical subqueries.
+                        </p>
+                        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 10px; color: #16a34a; font-weight: bold;">✓ Verified Credential</span>
+                            <button class="xp-btn" onclick="showSystemMessage({title:'SQL and Python Integration', icon:'https://win98icons.alexmeub.com/icons/png/trust0-0.png', message:'<strong>Querying Databases with SQL and Python:</strong><br><br>Building automated Python pipelines that execute complex SQL aggregations, window functions, and bulk data processing.'})">Inspect</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 6 -->
+                    <div class="cert-card">
+                        <div class="cert-badge">COMMUNICATION & DESIGN</div>
+                        <strong style="color: #0055ea; font-size: 12px; margin-bottom: 4px;">Telling Stories Using Data Visualization</strong>
+                        <div style="font-size: 10.5px; color: #64748b; margin-bottom: 6px;">Issuer: Dataquest.io</div>
+                        <p style="font-size: 11px; color: #334155; line-height: 1.4; margin: 0 0 8px 0;">
+                            Information design, minimizing chart junk, cognitive load optimization, and creating persuasive visual narratives from raw datasets.
+                        </p>
+                        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 10px; color: #16a34a; font-weight: bold;">✓ Verified Credential</span>
+                            <button class="xp-btn" onclick="showSystemMessage({title:'Telling Stories with Data', icon:'https://win98icons.alexmeub.com/icons/png/chart1-0.png', message:'<strong>Telling Stories Using Data Visualization:</strong><br><br>Principles of information hierarchy, Gestalt psychology in charts, editorial styling, and accessible visual communication.'})">Inspect</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>6 certificates verified</span>
+                <span>Dataquest Python & SQL Career Tracks</span>
+            </div>
+        </div>
+
+        <!-- WINDOW: Ideas & Selected Essays -->
+        <div class="window hidden" id="window-ideas"
+            style="top: 95px; left: 220px; width: 680px; height: 460px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/write_yellow-0.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">C:\SHUBHAM\IDEAS</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-ideas')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-ideas')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-ideas')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-address-bar">
+                <span style="font-size: 11px;">Address:</span>
+                <input type="text" class="xp-address-input" value="C:\SHUBHAM\IDEAS" readonly>
+                <button class="xp-btn" onclick="openWindow('window-ideas')">Go</button>
+            </div>
+
+            <div class="window-content" style="padding: 12px; overflow-y: auto;">
+                <p style="margin: 0 0 12px 0; color: #555; font-size: 11.5px;">Click any essay to open and read in Notepad:</p>
+
+                <div class="ideas-list">
+                    <div class="idea-item" onclick="openIdeaNote('prompt_vs_context')">
+                        <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" width="32" alt="">
+                        <div>
+                            <strong style="color: #0055ea; font-size: 13px;">Prompt Engineering vs. Context Engineering.txt</strong>
+                            <div style="font-size: 11px; color: #64748b; margin: 2px 0 4px 0;">Topic: Modern AI Systems, RAG & LLM Reliability · 2026</div>
+                            <p style="font-size: 11.5px; color: #334155; margin: 0; line-height: 1.4;">
+                                Why tweaking prompt adjectives is reaching diminishing returns, and why structured context pipelines, memory retrieval, and deterministic tool schemas are where real production AI engineering lives.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="idea-item" onclick="openIdeaNote('sports_ai')">
+                        <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" width="32" alt="">
+                        <div>
+                            <strong style="color: #0055ea; font-size: 13px;">Democratizing AI for Grassroots Sports.txt</strong>
+                            <div style="font-size: 11px; color: #64748b; margin: 2px 0 4px 0;">Topic: Computer Vision, OpenCV & Sports Kinematics in Nepal</div>
+                            <p style="font-size: 11.5px; color: #334155; margin: 0; line-height: 1.4;">
+                                Elite stadiums have Hawkeye multi-camera systems costing hundreds of thousands of dollars. Can a single camera and YOLOv8 bring biomechanics feedback to young players on a local clay court in Nepal?
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="idea-item" onclick="openIdeaNote('products_with_soul')">
+                        <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" width="32" alt="">
+                        <div>
+                            <strong style="color: #0055ea; font-size: 13px;">Why Software Needs Character.txt</strong>
+                            <div style="font-size: 11px; color: #64748b; margin: 2px 0 4px 0;">Topic: Product Design, Vintage Operating Systems & Human Delight</div>
+                            <p style="font-size: 11.5px; color: #334155; margin: 0; line-height: 1.4;">
+                                Modern web applications often feel like identical sterile SaaS landing pages. What happens when we reintroduce tactile bevels, playful easter eggs, and a sense of discovery?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>3 essays on file</span>
+                <span>C:\SHUBHAM\IDEAS</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 7: DO_NOT_OPEN Secret Room -->
+        <div class="window hidden" id="window-donotopen"
+            style="top: 110px; left: 240px; width: 500px; height: 380px;">
+            <div class="title-bar" style="background: linear-gradient(to right, #991b1b, #dc2626);">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/key_win-0.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">C:\DO_NOT_OPEN</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn close" onclick="closeWindow('window-donotopen')">X</div>
+                </div>
+            </div>
+
+            <div class="window-content" style="padding: 20px; background: #000; color: #f87171; font-family: 'Consolas', monospace;">
+                <h3 style="margin-top: 0; color: #ef4444;">I told you not to open it.</h3>
+                <p style="color: #fca5a5; line-height: 1.6;">
+                    Anyway... welcome to the secret room.<br>
+                    You’re the kind of person who explores every button in software, aren’t you?
+                </p>
+                <div style="background: #1e1e1e; border: 1px solid #7f1d1d; padding: 12px; border-radius: 4px; margin: 15px 0;">
+                    <div style="color: #fbbf24; font-weight: bold;">🏆 Secret Achievement Unlocked:</div>
+                    <div style="font-size: 11.5px; color: #e5e7eb; margin-top: 4px;">"Curiosity Killed the Cat, But Found the Easter Egg"</div>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button class="xp-btn" onclick="openWindow('window-sudoku'); closeWindow('window-donotopen');">🎮 Play Sudoku</button>
+                    <button class="xp-btn" onclick="openRecycleFile('things_i_never_said.txt'); closeWindow('window-donotopen');">📄 Read Unfiltered Notes</button>
+                    <button class="xp-btn" onclick="closeWindow('window-donotopen')">Back to Safety</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- WINDOW 8: Games Folder (C:\Games) -->
+        <div class="window hidden" id="window-games-folder"
+            style="top: 100px; left: 240px; width: 500px; height: 360px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/game_solitaire-1.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">C:\Games</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-games-folder')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-games-folder')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-games-folder')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-address-bar">
+                <span style="font-size: 11px;">Address:</span>
+                <input type="text" class="xp-address-input" value="C:\Games" readonly>
+                <button class="xp-btn" onclick="openWindow('window-games-folder')">Go</button>
+            </div>
+
+            <div class="window-content" style="padding: 20px;">
+                <p style="margin: 0 0 15px 0; color: #555; font-size: 11.5px;">Classic puzzles and games:</p>
+                <div style="display: flex; gap: 25px; flex-wrap: wrap;">
+                    <div onclick="openWindow('window-sudoku')" style="display: flex; flex-direction: column; align-items: center; width: 85px; text-align: center; cursor: pointer; padding: 8px; border: 1px solid transparent; border-radius: 3px;" class="desktop-icon">
+                        <img src="https://win98icons.alexmeub.com/icons/png/calculator-0.png" width="40" alt="">
+                        <span style="font-size: 11px; margin-top: 4px; color: #000; font-weight: bold;">Sudoku.exe</span>
+                    </div>
+
+                    <div onclick="openGamesReadme()" style="display: flex; flex-direction: column; align-items: center; width: 85px; text-align: center; cursor: pointer; padding: 8px; border: 1px solid transparent; border-radius: 3px;" class="desktop-icon">
+                        <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" width="40" alt="">
+                        <span style="font-size: 11px; margin-top: 4px; color: #000;">README.txt</span>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>2 objects</span>
+                <span>Excuse for procrastination: Approved</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 9: Sudoku.exe Application -->
+        <div class="window hidden" id="window-sudoku"
+            style="top: 65px; left: 240px; width: 410px; height: 570px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/calculator-0.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Sudoku.exe</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-sudoku')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-sudoku')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-sudoku')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-menubar">
+                <span onclick="initSudoku(sudokuDifficulty)"><u>N</u>ew Game</span>
+                <span onclick="resetSudokuGame()"><u>R</u>eset</span>
+                <span onclick="toggleSudokuPause()"><u>P</u>ause</span>
+                <span onclick="openGamesReadme()"><u>H</u>elp</span>
+            </div>
+
+            <div class="window-content" style="padding: 0; background: #ece9d8;">
+                <div class="sudoku-container">
+                    <div class="sudoku-header-bar">
+                        <div style="display: flex; gap: 3px;">
+                            <button class="sudoku-difficulty-btn active" data-diff="easy" onclick="initSudoku('easy')">Easy</button>
+                            <button class="sudoku-difficulty-btn" data-diff="medium" onclick="initSudoku('medium')">Medium</button>
+                            <button class="sudoku-difficulty-btn" data-diff="hard" onclick="initSudoku('hard')">Hard</button>
+                        </div>
+                        <div class="sudoku-stats">
+                            <span id="sudoku-mistakes-display" style="color: #dc2626;">Mistakes: 0</span>
+                            <span id="sudoku-timer-display" style="color: #1e3a8a;">00:00</span>
+                        </div>
+                        <div>
+                            <button class="xp-btn" id="sudoku-pause-btn" onclick="toggleSudokuPause()">Pause</button>
+                        </div>
+                    </div>
+
+                    <div class="sudoku-board-wrapper">
+                        <div class="sudoku-pause-overlay" id="sudoku-pause-overlay" style="display: none;">
+                            <div style="font-size: 16px; margin-bottom: 8px;">GAME PAUSED</div>
+                            <button class="xp-btn" onclick="toggleSudokuPause()">Resume Game</button>
+                        </div>
+                        <div class="sudoku-grid" id="sudoku-grid"></div>
+                    </div>
+
+                    <div class="sudoku-keypad">
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(1)">1</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(2)">2</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(3)">3</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(4)">4</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(5)">5</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(6)">6</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(7)">7</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(8)">8</button>
+                        <button class="sudoku-num-btn" onclick="inputSudokuNumber(9)">9</button>
+                        <button class="sudoku-num-btn sudoku-erase-btn" onclick="inputSudokuNumber(0)">⌫ Clear</button>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; margin-top: 4px;">
+                        <button class="xp-btn" onclick="initSudoku(sudokuDifficulty)">New Game</button>
+                        <button class="xp-btn" onclick="resetSudokuGame()">Reset Board</button>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>Keyboard: 1-9 to fill, Arrows to navigate</span>
+                <span>Mistake tracker active</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 9: Internet Explorer (Web Portals) -->
+        <div class="window hidden" id="window-ie"
+            style="top: 90px; left: 190px; width: 720px; height: 480px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/msie2-2.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Internet Explorer - Shubham's Web Portal</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-ie')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-ie')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-ie')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-address-bar">
+                <span style="font-size: 11px;">Address:</span>
+                <input type="text" class="xp-address-input" value="https://shubhamkhanal.dev/portal" readonly>
+                <button class="xp-btn" onclick="openWindow('window-ie')">Go</button>
+            </div>
+
+            <div class="window-content" style="padding: 20px;">
+                <h3 style="margin-top: 0; color: #0055ea;">🌐 Web Links & Public Presence</h3>
+                <p style="color: #555; font-size: 12px; margin-bottom: 20px;">Connect with Shubham across professional networks and open source repositories:</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <a href="https://www.linkedin.com/in/shubhamkhanal/" target="_blank"
+                       style="display: flex; gap: 12px; align-items: center; background: #f0f7ff; border: 1px solid #93c5fd; padding: 12px; border-radius: 4px;">
+                        <img src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-0.png" width="36" alt="">
+                        <div>
+                            <strong>LinkedIn Profile</strong><br>
+                            <span style="font-size: 11px; color: #64748b;">shubhamkhanal</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/KhanalShubham" target="_blank"
+                       style="display: flex; gap: 12px; align-items: center; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 4px;">
+                        <img src="https://win98icons.alexmeub.com/icons/png/msagent_file-1.png" width="36" alt="">
+                        <div>
+                            <strong>GitHub Repository</strong><br>
+                            <span style="font-size: 11px; color: #64748b;">github.com/KhanalShubham</span>
+                        </div>
+                    </a>
+
+                    <a href="mailto:shubhamkhanal593@gmail.com"
+                       style="display: flex; gap: 12px; align-items: center; background: #fdf4ff; border: 1px solid #f0abfc; padding: 12px; border-radius: 4px;">
+                        <img src="https://win98icons.alexmeub.com/icons/png/outlook_express-5.png" width="36" alt="">
+                        <div>
+                            <strong>Direct Email</strong><br>
+                            <span style="font-size: 11px; color: #64748b;">shubhamkhanal593@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a href="tel:+9779848962948"
+                       style="display: flex; gap: 12px; align-items: center; background: #f0fdf4; border: 1px solid #86efac; padding: 12px; border-radius: 4px;">
+                        <img src="https://win98icons.alexmeub.com/icons/png/phone-0.png" width="36" alt="">
+                        <div>
+                            <strong>WhatsApp & Phone</strong><br>
+                            <span style="font-size: 11px; color: #64748b;">+977-9848962948 (Nepal)</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="xp-statusbar">
+                <span>Internet Connection: Active</span>
+                <span>Trusted Sites</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 10: Outlook Express (Contact) -->
+        <div class="window hidden" id="window-contact"
+            style="top: 85px; left: 210px; width: 620px; height: 480px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/outlook_express-5.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">New Message - Outlook Express</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-contact')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-contact')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-contact')">X</div>
+                </div>
+            </div>
+
+            <form id="outlook-form" class="outlook-compose">
+                <div class="outlook-toolbar">
+                    <button type="submit" class="xp-btn" style="font-weight: bold;">
+                        <img src="https://win98icons.alexmeub.com/icons/png/envelope_closed-0.png" width="16" alt=""> Send Message
+                    </button>
+                    <button type="button" class="xp-btn" onclick="document.getElementById('outlook-msg-body').value=''">Cut</button>
+                    <button type="button" class="xp-btn" onclick="document.getElementById('outlook-msg-body').focus()">Paste</button>
+                </div>
+
+                <div class="outlook-fields">
+                    <div class="outlook-row">
+                        <span class="outlook-label">To:</span>
+                        <input type="text" class="outlook-input" value="shubhamkhanal593@gmail.com" readonly>
+                    </div>
+                    <div class="outlook-row">
+                        <span class="outlook-label">From:</span>
+                        <input type="text" name="from" class="outlook-input" placeholder="Your Name or Email" required>
+                    </div>
+                    <div class="outlook-row">
+                        <span class="outlook-label">Subject:</span>
+                        <input type="text" name="subject" class="outlook-input" placeholder="Project collaboration, tennis match, or coffee..." required>
+                    </div>
+                </div>
+
+                <div class="outlook-body">
+                    <textarea name="body" id="outlook-msg-body" class="outlook-textarea" placeholder="Type your message here..." required></textarea>
+                </div>
+
+                <div class="xp-statusbar">
+                    <span>Direct: +977-9848962948 · WhatsApp / Viber</span>
+                    <span>1 unsent message</span>
+                </div>
+            </form>
+        </div>
+
+        <!-- WINDOW 11: Windows Media Player -->
+        <div class="window hidden" id="window-media"
+            style="top: 100px; left: 240px; width: 480px; height: 420px;">
+            <div class="title-bar" style="background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Windows Media Player</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-media')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-media')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-media')">X</div>
+                </div>
+            </div>
+
+            <div class="wmp-container">
+                <div class="wmp-visualizer-area">
+                    <div class="wmp-now-playing">♫ Currently Playing: Nothing. Just wanted to look cool.</div>
+                    <div class="wmp-bars">
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                        <div class="wmp-bar"></div>
+                    </div>
+                </div>
+
+                <div class="wmp-controls">
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <div class="wmp-btn" id="wmp-play-btn" title="Play / Pause Ambient Synth">▶</div>
+                        <span style="font-size: 11px; color: #94a3b8;">Ambient Synth Toggle</span>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 6px; font-size: 11px;">
+                        <span>Vol:</span>
+                        <input type="range" id="wmp-volume-slider" min="0" max="1" step="0.05" value="0.5" style="width: 80px;">
+                    </div>
+                </div>
+
+                <div class="wmp-playlist">
+                    <div class="wmp-track active" onclick="selectWmpTrack('Shubham\'s Focus Synth (Live Audio)')">
+                        <span>▶ Shubham's Focus Ambient Synth</span>
+                        <span>LIVE AUDIO</span>
+                    </div>
+                    <div class="wmp-track" onclick="selectWmpTrack('Hans Zimmer - Interstellar Main Theme')">
+                        <span>🎵 Hans Zimmer - Interstellar Main Theme</span>
+                        <span>04:15</span>
+                    </div>
+                    <div class="wmp-track" onclick="selectWmpTrack('Daft Punk - Tron Legacy End Titles')">
+                        <span>🎵 Daft Punk - Tron Legacy End Titles</span>
+                        <span>03:18</span>
+                    </div>
+                    <div class="wmp-track" onclick="selectWmpTrack('Nepal Mountain Whispers (Lofi Breeze)')">
+                        <span>🎵 Nepal Mountain Whispers (Lofi Breeze)</span>
+                        <span>05:42</span>
+                    </div>
+                </div>
+            </div>
+            <div class="xp-statusbar" style="background: #0f172a; color: #94a3b8; border-color: #1e293b;">
+                <span>Audio Engine: Web Audio Synthesizer</span>
+                <span>Stereo 44.1 kHz</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 12: Notepad -->
+        <div class="window hidden" id="window-notepad"
+            style="top: 120px; left: 250px; width: 520px; height: 390px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">read_me_first.txt - Notepad</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-notepad')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-notepad')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-notepad')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-menubar">
+                <span><u>F</u>ile</span>
+                <span><u>E</u>dit</span>
+                <span><u>F</u>ormat</span>
+                <span><u>V</u>iew</span>
+                <span><u>H</u>elp</span>
+            </div>
+
+            <div class="window-content" style="padding: 0;">
+                <textarea class="notepad-textarea">
+Hey.
+
+You weren't supposed to find this.
+
+But since you're here...
+
+I'm someone who likes building things,
+breaking things,
+learning things,
+and occasionally wondering
+why I started building them.
+
+Welcome to my digital playground.
+Feel free to look around, inspect the code, or send me a message!
+
+— Shubham Khanal
+Full Stack Developer & Lifelong Explorer
+                </textarea>
+            </div>
+            <div class="xp-statusbar">
+                <span>Ln 16, Col 1</span>
+                <span>100%</span>
+                <span>Windows (CRLF)</span>
+            </div>
+        </div>
+
+        <!-- WINDOW 13: Command Prompt (cmd.exe) -->
+        <div class="window hidden" id="window-cmd"
+            style="top: 130px; left: 170px; width: 640px; height: 420px;">
+            <div class="title-bar" style="background: #000; color: #fff; border-bottom: 1px solid #333;">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/ms_dos-0.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Command Prompt (cmd.exe)</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-cmd')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-cmd')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-cmd')">X</div>
+                </div>
+            </div>
+
+            <div class="window-content" style="padding: 0; background: #000;">
+                <div class="cmd-window" id="cmd-window-el">
+                    <div id="cmd-output-area">
+                        <div>Microsoft Windows XP [Version 5.1.2600]</div>
+                        <div>(C) Copyright 1985-2001 Microsoft Corp.</div>
+                        <div style="color: #38bdf8; margin: 6px 0;">Welcome to Shubham OS Shell. Type <strong>help</strong> for commands.</div>
+                    </div>
+                    <div class="cmd-line">
+                        <span style="color: #aaa;">C:\SHUBHAM&gt;</span>
+                        <input type="text" id="cmd-input-field" class="cmd-input" autofocus spellcheck="false" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WINDOW 14: Display Properties (Control Panel) -->
+        <div class="window hidden" id="window-display"
+            style="top: 140px; left: 280px; width: 440px; height: 380px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="https://win98icons.alexmeub.com/icons/png/desktop-0.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Display Properties</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn close" onclick="closeWindow('window-display')">X</div>
+                </div>
+            </div>
+
+            <div class="window-content" style="padding: 15px;">
+                <h4 style="margin: 0 0 10px 0; color: #0055ea;">Choose Desktop Background:</h4>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="radio" name="xp-theme" value="bliss" checked onclick="changeTheme('bliss')">
+                        <strong>Windows XP Bliss</strong> (Rolling Green Hills)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="radio" name="xp-theme" value="mountain" onclick="changeTheme('mountain')">
+                        <strong>Himalayan Peak</strong> (Nepal Trails)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="radio" name="xp-theme" value="tennis" onclick="changeTheme('tennis')">
+                        <strong>Tennis Clay Court</strong> (Court & Racquet)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="radio" name="xp-theme" value="royale" onclick="changeTheme('royale')">
+                        <strong>Royale Energy Blue</strong> (Media Center Edition)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="radio" name="xp-theme" value="silver" onclick="changeTheme('silver')">
+                        <strong>Windows XP Silver</strong> (Minimal Slate)
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="radio" name="xp-theme" value="classic" onclick="changeTheme('classic')">
+                        <strong>Windows 98 Classic Teal</strong> (Pure Retro)
+                    </label>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
+
+                <div style="font-size: 11px; color: #666;">
+                    Changes are saved automatically to your browser storage.
+                </div>
+
+        <!-- WINDOW 15: MS Paint (mspaint.exe) -->
+        <div class="window hidden" id="window-paint"
+            style="top: 80px; left: 160px; width: 720px; height: 520px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/paint.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text" id="paint-titlebar-text">untitled - Paint</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-paint')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-paint')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-paint')">X</div>
+                </div>
+            </div>
+
+            <div class="xp-menubar">
+                <span onclick="clearPaintCanvas()"><u>F</u>ile</span>
+                <span onclick="undoPaint()"><u>E</u>dit</span>
+                <span><u>V</u>iew</span>
+                <span onclick="invertPaintColors()"><u>I</u>mage</span>
+                <span><u>C</u>olors</span>
+                <span onclick="showSystemMessage({title:'About Paint', icon:'src/icons/paint.png', message:'<strong>Microsoft Paint for Shubham OS</strong><br><br>Pick a tool, select your colors, and sketch directly in the browser!'})"><u>H</u>elp</span>
+            </div>
+
+            <div class="paint-container">
+                <div class="paint-workspace">
+                    <!-- Left Toolbox -->
+                    <div class="paint-toolbox" id="paint-toolbox">
+                        <button class="paint-tool-btn" data-tool="select" title="Select">⬚</button>
+                        <button class="paint-tool-btn" data-tool="eraser" title="Eraser">🧹</button>
+                        <button class="paint-tool-btn" data-tool="fill" title="Fill With Color">🪣</button>
+                        <button class="paint-tool-btn" data-tool="picker" title="Pick Color">💉</button>
+                        <button class="paint-tool-btn" data-tool="magnifier" title="Magnifier">🔍</button>
+                        <button class="paint-tool-btn active" data-tool="pencil" title="Pencil">✏</button>
+                        <button class="paint-tool-btn" data-tool="brush" title="Brush">🖌</button>
+                        <button class="paint-tool-btn" data-tool="airbrush" title="Airbrush">💨</button>
+                        <button class="paint-tool-btn" data-tool="text" title="Text">A</button>
+                        <button class="paint-tool-btn" data-tool="line" title="Line">╱</button>
+                        <button class="paint-tool-btn" data-tool="rect" title="Rectangle">▭</button>
+                        <button class="paint-tool-btn" data-tool="ellipse" title="Ellipse">⬭</button>
+                    </div>
+
+                    <!-- Drawing Canvas Viewport -->
+                    <div class="paint-canvas-area" id="paint-canvas-area">
+                        <canvas id="paint-canvas" class="paint-canvas" width="600" height="380"></canvas>
+                    </div>
+                </div>
+
+                <!-- Bottom 28-Color Palette Bar -->
+                <div class="paint-palette-bar">
+                    <div class="paint-current-colors">
+                        <div class="paint-fg-color" id="paint-active-fg"></div>
+                        <div class="paint-bg-color" id="paint-active-bg"></div>
+                    </div>
+                    <div class="paint-swatches-grid" id="paint-swatches-grid">
+                        <!-- Populated by main.js with 28 authentic XP palette colors -->
+                    </div>
+                    <div style="margin-left: auto; display: flex; gap: 6px;">
+                        <button class="xp-btn" onclick="clearPaintCanvas()">Clear</button>
+                        <button class="xp-btn" onclick="downloadPaintDrawing()">Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xp-statusbar">
+                <div class="xp-sb-panel" id="paint-status-coords" style="flex: 2;">600x380px</div>
+                <div class="xp-sb-panel" id="paint-status-tool" style="flex: 1;">Tool: Pencil</div>
+                <div class="xp-sb-panel" style="flex: 1;">mspaint.exe</div>
+            </div>
+        </div>
+
+        <!-- WINDOW 16: Windows Picture and Fax Viewer -->
+        <div class="window hidden" id="window-fax-viewer"
+            style="top: 60px; left: 180px; width: 780px; height: 560px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/camera_vid.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text" id="fax-viewer-title">Windows Picture and Fax Viewer</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn" onclick="minimizeWindow('window-fax-viewer')">_</div>
+                    <div class="control-btn" onclick="maximizeWindow('window-fax-viewer')">□</div>
+                    <div class="control-btn close" onclick="closeWindow('window-fax-viewer')">X</div>
+                </div>
+            </div>
+
+            <div class="fax-viewer-body">
+                <div class="fax-viewer-canvas" id="fax-viewer-canvas">
+                    <img id="fax-viewer-image" src="" alt="Picture Preview">
+                </div>
+
+                <!-- Authentic Bottom Circular Toolbar -->
+                <div class="fax-viewer-toolbar">
+                    <div class="fax-circle-btn" onclick="faxViewerPrev()" title="Previous Image (Left Arrow)">◀</div>
+                    <div class="fax-circle-btn" onclick="faxViewerNext()" title="Next Image (Right Arrow)">▶</div>
+                    <div style="width: 1px; height: 18px; background: #999; margin: 0 4px;"></div>
+                    <div class="fax-circle-btn" onclick="faxViewerZoomBestFit()" title="Best Fit">⛶</div>
+                    <div class="fax-circle-btn" onclick="faxViewerZoomActual()" title="Actual Size">1:1</div>
+                    <div class="fax-circle-btn" onclick="faxViewerZoomIn()" title="Zoom In (+)">+</div>
+                    <div class="fax-circle-btn" onclick="faxViewerZoomOut()" title="Zoom Out (-)">-</div>
+                    <div style="width: 1px; height: 18px; background: #999; margin: 0 4px;"></div>
+                    <div class="fax-circle-btn" onclick="faxViewerRotateLeft()" title="Rotate Clockwise">↻</div>
+                    <div class="fax-circle-btn" onclick="faxViewerRotateRight()" title="Rotate Counterclockwise">↺</div>
+                    <div class="fax-circle-btn" onclick="faxViewerPrint()" title="Print">🖶</div>
+                    <div class="fax-circle-btn" onclick="closeWindow('window-fax-viewer')" title="Close Viewer">✕</div>
+                </div>
+            </div>
+
+            <div class="xp-statusbar">
+                <div class="xp-sb-panel" id="fax-viewer-sb-dim" style="flex: 2;">Ready</div>
+                <div class="xp-sb-panel" id="fax-viewer-sb-zoom" style="flex: 1;">100%</div>
+                <div class="xp-sb-panel" style="flex: 1;">shimgvw.dll</div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             4. Dialog Windows (Easter Eggs)
+             ========================================== -->
+
+        <!-- 1. System Message Dialog -->
+        <div class="window xp-dialog hidden" id="dialog-system-msg"
+            style="top: 48%; left: 50%; transform: translate(-50%, -50%); width: 380px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/msg_info.png" id="dialog-system-icon-title" class="title-bar-icon" alt="">
+                    <div class="title-bar-text" id="dialog-system-title-text">System Message</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn close" onclick="closeWindow('dialog-system-msg')">X</div>
+                </div>
+            </div>
+            <div class="xp-dialog-box">
+                <img src="src/icons/msg_info.png" id="dialog-system-icon-body" class="xp-dialog-icon" alt="">
+                <div class="xp-dialog-msg" id="dialog-system-msg-text">Message placeholder</div>
+            </div>
+            <div class="xp-dialog-btn-row">
+                <button class="xp-btn" style="min-width: 75px;" onclick="closeWindow('dialog-system-msg')">OK</button>
+            </div>
+        </div>
+
+        <!-- 2. Authentic Easter Egg Dialog: Purrr ("Do you love cats?") -->
+        <div class="window xp-dialog hidden" id="dialog-purrr"
+            style="top: 45%; left: 50%; transform: translate(-50%, -50%); width: 340px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/msg_info.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Purrr</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn close" onclick="closeWindow('dialog-purrr')">X</div>
+                </div>
+            </div>
+            <div class="xp-dialog-box">
+                <img src="src/icons/msg_info.png" class="xp-dialog-icon" alt="">
+                <div class="xp-dialog-msg" style="font-size: 12px; padding-top: 4px;">
+                    Do you love cats?
+                </div>
+            </div>
+            <div class="xp-dialog-btn-row" style="justify-content: center; gap: 20px;">
+                <button class="xp-btn" style="min-width: 75px; font-weight: bold;" onclick="handlePurrrChoice('yes1')">Yes</button>
+                <button class="xp-btn" style="min-width: 75px; font-weight: bold;" onclick="handlePurrrChoice('yes2')">Yes</button>
+            </div>
+        </div>
+
+        <!-- 3. Authentic Easter Egg Dialog: This is the end -->
+        <div class="window xp-dialog hidden" id="dialog-end"
+            style="top: 46%; left: 50%; transform: translate(-50%, -50%); width: 350px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/msg_warning.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">System Message</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn close" onclick="closeWindow('dialog-end')">X</div>
+                </div>
+            </div>
+            <div class="xp-dialog-box">
+                <img src="src/icons/msg_warning.png" class="xp-dialog-icon" alt="">
+                <div class="xp-dialog-msg" style="font-size: 12px; padding-top: 4px;">
+                    This is the end.
+                </div>
+            </div>
+            <div class="xp-dialog-btn-row">
+                <button class="xp-btn" style="min-width: 85px;" onclick="handleGiveUpAction()">Give Up</button>
+            </div>
+        </div>
+
+        <!-- 4. Authentic Confirm Delete Dialog (Recycle Bin) -->
+        <div class="window xp-dialog hidden" id="dialog-confirm-delete"
+            style="top: 44%; left: 50%; transform: translate(-50%, -50%); width: 420px;">
+            <div class="title-bar">
+                <div class="title-bar-left">
+                    <img src="src/icons/xp_33.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Confirm Multiple File Delete</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn close" onclick="closeWindow('dialog-confirm-delete')">X</div>
+                </div>
+            </div>
+            <div class="xp-dialog-box">
+                <img src="src/icons/xp_33.png" class="xp-dialog-icon" alt="">
+                <div class="xp-dialog-msg">
+                    Are you sure you want to permanently delete these 5 items?
+                </div>
+            </div>
+            <div class="xp-dialog-btn-row">
+                <button class="xp-btn" style="min-width: 75px; font-weight: bold;" onclick="executeEmptyRecycleBin()">Yes</button>
+                <button class="xp-btn" style="min-width: 75px;" onclick="closeWindow('dialog-confirm-delete')">No</button>
+            </div>
+        </div>
+
+        <!-- 5. Shut Down Windows XP Dialog -->
+        <div class="window xp-dialog hidden" id="dialog-shutdown"
+            style="top: 48%; left: 50%; transform: translate(-50%, -50%); width: 400px;">
+            <div class="title-bar" style="background: linear-gradient(to right, #003399, #0055ea);">
+                <div class="title-bar-left">
+                    <img src="src/icons/windows.png" class="title-bar-icon" alt="">
+                    <div class="title-bar-text">Turn off computer</div>
+                </div>
+                <div class="title-bar-controls">
+                    <div class="control-btn close" onclick="closeWindow('dialog-shutdown')">X</div>
+                </div>
+            </div>
+            <div style="background: #003399; color: #fff; padding: 25px 20px; display: flex; justify-content: space-around; text-align: center;">
+                <div style="cursor: pointer;" onclick="handleShutDownAction('standby')">
+                    <div style="width: 44px; height: 44px; background: #fbbf24; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; margin: 0 auto 6px auto; font-weight: bold; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.4);">⏸</div>
+                    <span style="font-size: 11px;">Stand By</span>
+                </div>
+                <div style="cursor: pointer;" onclick="handleShutDownAction('turnoff')">
+                    <div style="width: 44px; height: 44px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; margin: 0 auto 6px auto; font-weight: bold; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.4);">⏻</div>
+                    <span style="font-size: 11px; font-weight: bold;">Turn Off</span>
+                </div>
+                <div style="cursor: pointer;" onclick="handleShutDownAction('restart')">
+                    <div style="width: 44px; height: 44px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; margin: 0 auto 6px auto; font-weight: bold; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.4);">↻</div>
+                    <span style="font-size: 11px;">Restart</span>
+                </div>
+            </div>
+            <div class="dialog-footer" style="background: #002277; border-top: none;">
+                <button class="xp-btn" onclick="closeWindow('dialog-shutdown')">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Tray Balloon Tip Notification -->
+        <div id="xp-balloon-tip">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <strong>Shubham OS</strong>
+                <span style="cursor: pointer; font-weight: bold;" onclick="closeBalloonTip()">×</span>
+            </div>
+            <div>You have 1 new late-night idea.</div>
+            <div style="display: flex; gap: 6px; margin-top: 8px;">
+                <button class="xp-btn" onclick="viewBalloonIdea()">View</button>
+                <button class="xp-btn" onclick="closeBalloonTip()">Later</button>
+            </div>
         </div>
     </div>
 
-    <!-- Taskbar -->
+    <!-- ==========================================
+         5. Desktop Right-Click Context Menu
+         ========================================== -->
+    <div id="desktop-context-menu">
+        <div class="context-menu-item" onclick="triggerDesktopRefresh()">
+            <img src="src/icons/xp_14.png" width="16" height="16" alt="" style="margin-right: 6px;"> Refresh
+        </div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" onclick="resetDesktopIconPositions()">
+            <img src="src/icons/computer_16.png" width="16" height="16" alt="" style="margin-right: 6px;"> Arrange Icons
+        </div>
+        <div class="context-menu-item" onclick="openWindow('window-notepad')">
+            <img src="src/icons/notepad.png" width="16" height="16" alt="" style="margin-right: 6px;"> New Text Document
+        </div>
+        <div class="context-menu-item" onclick="openWindow('window-paint')">
+            <img src="src/icons/paint.png" width="16" height="16" alt="" style="margin-right: 6px;"> New Bitmap Image
+        </div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" onclick="openWindow('window-display')">
+            <img src="src/icons/xp_25.png" width="16" height="16" alt="" style="margin-right: 6px;"> Properties
+        </div>
+        <div class="context-menu-item" onclick="showSystemMessage({title:'About Shubham OS', icon:'src/icons/computer_16.png', message:'<strong>Built by Shubham Khanal.</strong><br><br>Inspired by classic operating systems that felt deeply personal.'})">
+            <img src="src/icons/msg_info.png" width="16" height="16" alt="" style="margin-right: 6px;"> About Shubham OS
+        </div>
+    </div>
+
+    <!-- ==========================================
+         6. Windows XP Start Menu
+         ========================================== -->
+    <div id="start-menu">
+        <div class="start-menu-header">
+            <img src="src/shubham.jpg" alt="Shubham" class="start-user-pic" onerror="this.src='src/icons/user_computer.png'">
+            <div>
+                <div class="start-user-title">Shubham Khanal</div>
+                <div class="start-user-sub">Full Stack Developer & Explorer</div>
+            </div>
+        </div>
+
+        <div class="start-menu-body">
+            <!-- Left Column: Programs -->
+            <div class="start-menu-left">
+                <div class="start-item" onclick="openWindow('window-profile')">
+                    <img src="src/icons/user_computer.png" alt="">
+                    <span><strong>Who Am I</strong></span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-projects')">
+                    <img src="src/icons/folder.png" alt="">
+                    <span><strong>My Projects</strong></span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-achievements')">
+                    <img src="src/icons/certificate_2.png" alt="">
+                    <span><strong>Achievements & Sports</strong></span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-certificates')">
+                    <img src="src/icons/xp_25.png" alt="">
+                    <span>Certificates</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-ideas')">
+                    <img src="src/icons/xp_152.png" alt="">
+                    <span>Ideas & Essays</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-personal')">
+                    <img src="src/icons/folder.png" alt="">
+                    <span>Personal Space</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-games-folder')">
+                    <img src="src/icons/solitaire.png" alt="">
+                    <span>Games</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-sudoku')">
+                    <img src="src/icons/xp_167.png" alt="">
+                    <span>Sudoku.exe</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-paint')">
+                    <img src="src/icons/paint.png" alt="">
+                    <span>Paint</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-contact')">
+                    <img src="src/icons/mail.png" alt="">
+                    <span>Outlook Express</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-media')">
+                    <img src="src/icons/winamp.png" alt="">
+                    <span>Windows Media Player</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-cmd')">
+                    <img src="src/icons/xp_47.png" alt="">
+                    <span>Command Prompt</span>
+                </div>
+                <div class="start-item" onclick="openWindow('window-notepad')">
+                    <img src="src/icons/notepad.png" alt="">
+                    <span>Notepad</span>
+                </div>
+            </div>
+
+            <!-- Right Column: System Places -->
+            <div class="start-menu-right">
+                <div class="start-item-right" onclick="openWindow('window-thispc')">
+                    <img src="src/icons/computer_16.png" alt="">
+                    <span>My Computer</span>
+                </div>
+                <div class="start-item-right" onclick="openWindow('window-profile')">
+                    <img src="src/icons/xp_235.png" alt="">
+                    <span>My Documents</span>
+                </div>
+                <div class="start-item-right" onclick="openWindow('window-downloads')">
+                    <img src="src/icons/folder.png" alt="">
+                    <span>Downloads & CV</span>
+                </div>
+                <div class="start-item-right" onclick="openWindow('window-personal'); showPersonalSection('sec-hiking')">
+                    <img src="src/icons/camera_vid.png" alt="">
+                    <span>My Pictures</span>
+                </div>
+                <div class="start-item-right" onclick="openWindow('window-display')">
+                    <img src="src/icons/xp_25.png" alt="">
+                    <span>Control Panel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="start-menu-footer">
+            <div class="start-footer-btn" onclick="openShutDownDialog()">
+                <img src="src/icons/windows.png" width="16" alt="">
+                <span>Turn Off Computer...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         7. Taskbar
+         ========================================== -->
     <div class="taskbar">
-        <div class="start-btn">
-            <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="Win">
+        <!-- Start Button -->
+        <div class="start-btn" onclick="toggleStartMenu()">
+            <img src="src/icons/windows.png" alt="Win">
             Start
         </div>
+
         <div class="taskbar-divider"></div>
 
-        <!-- Socials in Taskbar or near tray -->
-        <div style="display: flex; gap: 10px; margin-left: 10px;">
-            <a href="https://www.linkedin.com/in/shubham-khanal-445a4a245/" target="_blank" title="LinkedIn">
-                <img src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-0.png" width="20">
+        <!-- Quick Launch -->
+        <div class="quick-launch-area">
+            <div class="quick-launch-icon" title="Show Desktop" onclick="document.querySelectorAll('.window').forEach(w => minimizeWindow(w.id))">
+                <img src="src/icons/computer_16.png" alt="Desktop">
+            </div>
+            <div class="quick-launch-icon" title="Who Am I" onclick="openWindow('window-profile')">
+                <img src="src/icons/user_computer.png" alt="Profile">
+            </div>
+            <div class="quick-launch-icon" title="Projects" onclick="openWindow('window-projects')">
+                <img src="src/icons/folder.png" alt="Projects">
+            </div>
+        </div>
+
+        <div class="taskbar-divider"></div>
+
+        <!-- Dynamic Running Task Tabs -->
+        <div class="taskbar-windows-area" id="taskbar-windows">
+            <!-- Populated dynamically by main.js -->
+        </div>
+
+        <!-- Social Quick Links in Taskbar -->
+        <div style="display: flex; gap: 8px; margin-left: 6px; margin-right: 6px; align-items: center;">
+            <a href="https://www.linkedin.com/in/shubhamkhanal/" target="_blank" title="LinkedIn Profile">
+                <img src="src/icons/ie.png" width="18" alt="LinkedIn">
             </a>
-            <a href="https://github.com/KhanalShubham" target="_blank" title="GitHub">
-                <img src="https://win98icons.alexmeub.com/icons/png/msagent_file-1.png" width="20">
+            <a href="https://github.com/KhanalShubham" target="_blank" title="GitHub Profile">
+                <img src="src/icons/folder.png" width="18" alt="GitHub">
             </a>
-            <a href="mailto:shubhamkhanal593@gmail.com" title="Email">
-                <img src="https://win98icons.alexmeub.com/icons/png/outlook_express-5.png" width="20">
+            <a href="mailto:shubhamkhanal593@gmail.com" title="Direct Email">
+                <img src="src/icons/mail.png" width="18" alt="Email">
             </a>
-            <a href="tel:+9779848962948" title="WhatsApp">
-                <img src="https://win98icons.alexmeub.com/icons/png/phone-0.png" width="20">
+            <a href="tel:+9779848962948" title="WhatsApp / Call">
+                <img src="src/icons/xp_14.png" width="18" alt="Phone">
             </a>
         </div>
 
+        <!-- System Tray -->
         <div class="tray-area">
-            <div class="tray-icon" title="Sound"><img
-                    src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-0.png" width="12"></div>
+            <div class="tray-icon" id="tray-sound" title="Sound Volume">
+                <img src="src/icons/xp_17.png" width="14" alt="Sound">
+            </div>
+            <div class="tray-icon" title="Connected to Internet (100.0 Mbps)">
+                <img src="src/icons/xp_14.png" width="14" alt="Network">
+            </div>
             <div id="clock">12:00 PM</div>
         </div>
+    </div>
+
+    <!-- System Tray Volume Slider Popup -->
+    <div id="tray-volume-popup">
+        <span>Volume</span>
+        <input type="range" id="tray-volume-slider" min="0" max="1" step="0.05" value="0.5" orient="vertical" style="height: 70px;">
+    </div>
+
+    <!-- ==========================================
+         8. Lightbox Modal
+         ========================================== -->
+    <div id="lightbox" class="lightbox-overlay hidden" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <div id="lightbox-prev" class="lightbox-nav prev">&lt;</div>
+        <div id="lightbox-next" class="lightbox-nav next">&gt;</div>
+        <img class="lightbox-image" id="lightbox-img" src="" alt="Gallery Preview">
     </div>
 
     <script src="js/main.js"></script>
